@@ -1,7 +1,13 @@
 import React from 'react';
-import { Github, ExternalLink } from 'lucide-react';
+import { Github, ExternalLink, Video } from 'lucide-react';
 
 const ProjectCard = ({ project, isDark }) => {
+    const isVideoFile = project.video && (
+        project.video.endsWith('.mp4') || 
+        project.video.endsWith('.webm') || 
+        project.video.endsWith('.mov')
+    );
+
     return (
         <div
             className={`rounded-xl overflow-hidden hover:transform hover:-translate-y-2 transition-all duration-300 shadow-lg border backdrop-blur-sm ${isDark
@@ -10,17 +16,44 @@ const ProjectCard = ({ project, isDark }) => {
                 }`}
         >
             <div className="h-48 bg-gradient-to-br from-blue-500 to-teal-500 relative overflow-hidden group">
-                <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    onError={(e) => {
-                        // Fallback if image not found
-                        e.target.src = 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop';
-                    }}
-                />
+                {Array.isArray(project.image) ? (
+                    <div className="w-full h-full grid grid-cols-2 gap-0.5 bg-gray-900 overflow-hidden">
+                        {project.image.map((img, idx) => (
+                            <img
+                                key={idx}
+                                src={img}
+                                alt={`${project.title} screenshot ${idx + 1}`}
+                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                onError={(e) => {
+                                    e.target.src = 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop';
+                                }}
+                            />
+                        ))}
+                    </div>
+                ) : isVideoFile ? (
+                    <video
+                        src={project.video}
+                        poster={typeof project.image === 'string' ? project.image : undefined}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        controls
+                        className="w-full h-full object-cover"
+                    />
+                ) : (
+                    <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        onError={(e) => {
+                            // Fallback if image not found
+                            e.target.src = 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop';
+                        }}
+                    />
+                )}
                 {project.featured && (
-                    <div className="absolute top-3 right-3 shadow-md">
+                    <div className="absolute top-3 right-3 shadow-md pointer-events-none z-10">
                         <span className="bg-yellow-400 text-yellow-900 text-xs px-2 py-1 rounded-full font-bold tracking-wide">
                             Featured
                         </span>
@@ -48,6 +81,17 @@ const ProjectCard = ({ project, isDark }) => {
                     ))}
                 </div>
                 <div className="flex space-x-4 mt-auto pt-2">
+                    {project.video && (
+                        <a
+                            href={project.video}
+                            className={`flex items-center text-sm font-medium hover:text-blue-600 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <Video size={16} className="mr-2" />
+                            Video Demo
+                        </a>
+                    )}
                     {project.github && project.github !== "(private)" && (
                         <a
                             href={project.github}

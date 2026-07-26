@@ -1,30 +1,30 @@
 export const projects = [
     // ROW 1
     {
-        title: "Planning Housing Explorer",
-        description: "A 3D web app to explore and communicate NYC Department of City Planning's City of Yes initiative. Built with Three.js.",
-        tech: ["React", "Three.js", "Node.js", "MongoDB"],
-        github: "https://github.com/CTC3PO/planning-housing-tool",
-        live: "https://cif-ud-project.vercel.app/",
-        image: "./images/housing-project.png",
+        title: "ZR-Explore: NYC Zoning Navigator",
+        description: "An interactive platform to demystify NYC's zoning regulations. Features 3D building massing visualization, lot buildable calculations, and an AI assistant grounded in official Zoning Resolution text.",
+        tech: ["Next.js", "React", "TypeScript", "MapLibre GL", "Tailwind CSS", "Gemini AI"],
+        github: "https://github.com/CTC3PO/zr-explore",
+        live: "https://zr-explore.vercel.app",
+        image: "./images/p1-zr.png",
         featured: true
     },
     {
-        title: "Dalat App",
-        description: "A collaborative travel application designed to help users plan and navigate their trips to Dalat with interactive itineraries.",
-        tech: ["Next.js", "React", "Supabase", "Tailwind CSS"],
-        github: "https://github.com/goldenfocus/dalat-app",
-        live: "https://dalat.app/",
-        image: "./images/dalat-app1.png",
+        title: "Volunteer Management System",
+        description: "A tailored Volunteer Management System for retreat centers. Features volunteer tracking, dynamic team assignments, CSV sync, document uploads, and offline PWA support.",
+        tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Firebase", "Zustand"],
+        github: "https://github.com/CTC3PO/volunteer-manager",
+        live: "https://tnv-langmai.vercel.app/",
+        image: "./images/p2-volunteer-1.png",
         featured: true
     },
     {
-        title: "Mindful Life System",
+        title: "Growth Tracker",
         description: "A comprehensive platform dedicated to supporting mental well-being, featuring habit tracking and mindful living concepts.",
         tech: ["React", "CSS", "Frontend UI"],
         github: "https://github.com/CTC3PO/growth-track",
         live: "https://growth-track1.vercel.app/",
-        image: "./images/mindful-life.png",
+        image: "./images/p3-track-app-0.png",
         featured: true
     },
     // ROW 2
@@ -32,9 +32,9 @@ export const projects = [
         title: "Generative AI for Virtual Environment",
         description: "An advanced Unreal Engine project exploring generative AI techniques to build and texture immersive 3D landscapes.",
         tech: ["Unreal Engine", "Generative AI", "C++"],
-        github: "(private)", // Or update if there is a repo
-        live: "",
-        image: "./images/genai-env.png", // The new image the user added
+        github: "",
+        live: "https://drive.google.com/file/d/1MZcDWdkuWxCIQwSUONSxhmDWqFsLyLsF/view?usp=sharing",
+        image: "./images/p4-photo-1.png",
         featured: true
     },
     {

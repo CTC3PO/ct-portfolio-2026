@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Github, Linkedin, MessageCircle, Send } from 'lucide-react';
+import { Mail, Github, Linkedin, MessageCircle, Send, FileText } from 'lucide-react';
 
 const ContactSection = ({ isDark }) => {
     const [formData, setFormData] = useState({
@@ -64,6 +64,12 @@ const ContactSection = ({ isDark }) => {
                                 icon={<Linkedin size={24} />}
                                 text="linkedin.com/in/chautrancmt26"
                                 href="https://www.linkedin.com/in/chautrancmt26/"
+                                isDark={isDark}
+                            />
+                            <ContactLink
+                                icon={<FileText size={24} />}
+                                text="Resume"
+                                href="https://drive.google.com/open?id=1WfGw3e__WtNQTwTZZvE3IxkYwMsnLONK&usp=drive_fs"
                                 isDark={isDark}
                             />
                         </div>
