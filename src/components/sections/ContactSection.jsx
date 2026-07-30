@@ -19,7 +19,7 @@ const ContactSection = ({ isDark }) => {
         e.preventDefault();
         const subject = `Portfolio Contact from ${formData.name}`;
         const body = `Hello Chau,\n\n${formData.message}\n\nBest regards,\n${formData.name}\n${formData.email}`;
-        const mailtoLink = `mailto:chautrancmt26@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        const mailtoLink = `mailto:ctran@alumni.upenn.edu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
         window.location.href = mailtoLink;
         setFormData({ name: '', email: '', message: '' });
@@ -50,8 +50,8 @@ const ContactSection = ({ isDark }) => {
                         <div className="space-y-8">
                             <ContactLink
                                 icon={<Mail size={24} />}
-                                text="chautrancmt26@gmail.com"
-                                href="mailto:chautrancmt26@gmail.com"
+                                text="ctran@alumni.upenn.edu"
+                                href="mailto:ctran@alumni.upenn.edu"
                                 isDark={isDark}
                             />
                             <ContactLink
@@ -69,7 +69,7 @@ const ContactSection = ({ isDark }) => {
                             <ContactLink
                                 icon={<FileText size={24} />}
                                 text="Resume"
-                                href="https://drive.google.com/open?id=1WfGw3e__WtNQTwTZZvE3IxkYwMsnLONK&usp=drive_fs"
+                                href="/Resume_ChauTran.pdf"
                                 isDark={isDark}
                             />
                         </div>

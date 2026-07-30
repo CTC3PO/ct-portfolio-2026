@@ -44,8 +44,8 @@ const HeroSection = ({ isDark, scrollToSection }) => {
                 <div className="flex justify-center space-x-6 mb-12">
                     <SocialLink href="https://github.com/CTC3PO" icon={<Github size={28} />} isDark={isDark} ariaLabel="GitHub" />
                     <SocialLink href="https://www.linkedin.com/in/chautrancmt26/" icon={<Linkedin size={28} />} isDark={isDark} ariaLabel="LinkedIn" />
-                    <SocialLink href="https://drive.google.com/file/d/1uaL0LFCOBYeQz_msJmNknh_LLQ68v4ie/view?usp=drive_link" icon={<FileText size={28} />} isDark={isDark} ariaLabel="Resume" />
-                    <SocialLink href="mailto:chautrancmt26@gmail.com" icon={<Mail size={28} />} isDark={isDark} ariaLabel="Email" />
+                    <SocialLink href="/Resume_ChauTran.pdf" icon={<FileText size={28} />} isDark={isDark} ariaLabel="Resume" />
+                    <SocialLink href="mailto:ctran@alumni.upenn.edu" icon={<Mail size={28} />} isDark={isDark} ariaLabel="Email" />
                 </div>
 
                 <button
