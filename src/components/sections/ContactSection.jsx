@@ -69,7 +69,7 @@ const ContactSection = ({ isDark }) => {
                             <ContactLink
                                 icon={<FileText size={24} />}
                                 text="Resume"
-                                href="/Resume_ChauTran.pdf"
+                                href="https://drive.google.com/file/d/1luzRl8oErP-hgXfnF6q4PP8lY-2fUhVx/view?usp=sharing"
                                 isDark={isDark}
                             />
                         </div>
