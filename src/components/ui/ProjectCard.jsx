@@ -8,13 +8,13 @@ const ProjectCard = ({ project, isDark }) => {
         <article
             className={`group rounded-2xl overflow-hidden border transition-all duration-300 flex flex-col ${
                 isDark
-                    ? 'bg-[#151D2A] border-[#222C3D] hover:border-[#2E3B50] hover:shadow-xl hover:shadow-black/20'
+                    ? 'bg-[#282D36] border-[#3A4250] hover:border-[#4E586A] hover:shadow-xl hover:shadow-black/20'
                     : 'bg-white border-[#E6E1D5] hover:border-[#CCC5B4] hover:shadow-xl hover:shadow-[#1E1D1A]/5'
             }`}
         >
             {/* Project Image Container */}
             <div className={`relative w-full overflow-hidden aspect-[16/10] border-b ${
-                isDark ? 'bg-[#0E131C] border-[#222C3D]' : 'bg-[#EAE5D8] border-[#E6E1D5]'
+                isDark ? 'bg-[#1B1E24] border-[#3A4250]' : 'bg-[#EAE5D8] border-[#E6E1D5]'
             }`}>
                 {isDualImage ? (
                     <div className="w-full h-full grid grid-cols-2 gap-1 p-2 bg-neutral-900/10">
@@ -47,13 +47,13 @@ const ProjectCard = ({ project, isDark }) => {
             <div className="p-6 md:p-8 flex-1 flex flex-col justify-between">
                 <div>
                     <h3 className={`text-xl md:text-2xl font-bold tracking-tight mb-3 transition-colors ${
-                        isDark ? 'text-white group-hover:text-[#F59E0B]' : 'text-[#1E1D1A] group-hover:text-[#B45309]'
+                        isDark ? 'text-[#F0F2F5] group-hover:text-[#E5A84B]' : 'text-[#1E1D1A] group-hover:text-[#B45309]'
                     }`}>
                         {project.title}
                     </h3>
 
                     <p className={`text-sm md:text-base leading-relaxed mb-6 font-normal ${
-                        isDark ? 'text-[#D5D2CA]' : 'text-[#55524B]'
+                        isDark ? 'text-[#CBD2DC]' : 'text-[#55524B]'
                     }`}>
                         {project.description}
                     </p>
@@ -65,7 +65,7 @@ const ProjectCard = ({ project, isDark }) => {
                                 key={tech}
                                 className={`text-xs font-medium px-2.5 py-1 rounded-md transition-colors ${
                                     isDark
-                                        ? 'bg-[#1E2838] text-[#D5D2CA] border border-[#2E3B50]'
+                                        ? 'bg-[#1E2228] text-[#CBD2DC] border border-[#3A4250]'
                                         : 'bg-[#F2EFE8] text-[#4A463D] border border-[#E2DDD0]'
                                 }`}
                             >
@@ -77,7 +77,7 @@ const ProjectCard = ({ project, isDark }) => {
 
                 {/* Action Links */}
                 <div className={`pt-4 border-t flex items-center space-x-5 ${
-                    isDark ? 'border-[#222C3D]' : 'border-[#E6E1D5]'
+                    isDark ? 'border-[#3A4250]' : 'border-[#E6E1D5]'
                 }`}>
                     {project.live && (
                         <a
@@ -86,7 +86,7 @@ const ProjectCard = ({ project, isDark }) => {
                             rel="noopener noreferrer"
                             className={`inline-flex items-center text-sm font-semibold transition-colors ${
                                 isDark
-                                    ? 'text-white hover:text-[#F59E0B]'
+                                    ? 'text-[#F0F2F5] hover:text-[#E5A84B]'
                                     : 'text-[#1E1D1A] hover:text-[#B45309]'
                             }`}
                         >
@@ -102,7 +102,7 @@ const ProjectCard = ({ project, isDark }) => {
                             rel="noopener noreferrer"
                             className={`inline-flex items-center text-sm font-medium transition-colors ${
                                 isDark
-                                    ? 'text-slate-400 hover:text-white'
+                                    ? 'text-[#9BA1AD] hover:text-white'
                                     : 'text-[#68655E] hover:text-[#1E1D1A]'
                             }`}
                         >
