@@ -10,15 +10,6 @@ const ProjectsSection = ({ isDark }) => {
             <div className="max-w-6xl mx-auto">
                 {/* Section Header */}
                 <div className="mb-16">
-                    <div className="flex items-center space-x-3 mb-4">
-                        <span className={`text-xs font-semibold tracking-[0.2em] uppercase ${
-                            isDark ? 'text-[#C89B6D]' : 'text-[#7A4623]'
-                        }`}>
-                            01 / SELECTED WORK
-                        </span>
-                        <div className={`h-px flex-1 max-w-[80px] ${isDark ? 'bg-[#2E2C28]' : 'bg-[#DDD9CE]'}`} />
-                    </div>
-
                     <h2 className={`text-3xl sm:text-4xl md:text-5xl font-black tracking-tight uppercase mb-3 ${
                         isDark ? 'text-[#F5F3EC]' : 'text-[#1C1C1A]'
                     }`}>

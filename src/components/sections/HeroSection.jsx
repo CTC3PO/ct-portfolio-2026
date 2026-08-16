@@ -5,18 +5,8 @@ const HeroSection = ({ isDark, scrollToSection }) => {
     return (
         <section id="home" className="pt-32 pb-24 md:pt-44 md:pb-32 px-6">
             <div className="max-w-5xl mx-auto">
-                {/* Editorial Eyebrow */}
-                <div className="flex items-center space-x-3 mb-8">
-                    <span className={`text-xs font-semibold tracking-[0.2em] uppercase ${
-                        isDark ? 'text-[#C89B6D]' : 'text-[#7A4623]'
-                    }`}>
-                        00 / INTRODUCTION
-                    </span>
-                    <div className={`h-px flex-1 max-w-[80px] ${isDark ? 'bg-[#2E2C28]' : 'bg-[#DDD9CE]'}`} />
-                </div>
-
                 {/* Profile Photo */}
-                <div className="mb-8">
+                <div className="mb-10">
                     <div className={`w-20 h-20 sm:w-24 sm:h-24 overflow-hidden border ${
                         isDark ? 'border-[#2E2C28] bg-[#1E1D1A]' : 'border-[#DDD9CE] bg-[#EFECE3]'
                     }`}>

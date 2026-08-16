@@ -30,14 +30,6 @@ const ContactSection = ({ isDark }) => {
         }`}>
             <div className="max-w-5xl mx-auto">
                 <div className="text-center mb-16">
-                    <div className="flex items-center justify-center space-x-3 mb-4">
-                        <span className={`text-xs font-semibold tracking-[0.2em] uppercase ${
-                            isDark ? 'text-[#C89B6D]' : 'text-[#7A4623]'
-                        }`}>
-                            03 / CONTACT
-                        </span>
-                    </div>
-
                     <h2 className={`text-3xl sm:text-4xl md:text-5xl font-black tracking-tight uppercase mb-3 ${
                         isDark ? 'text-[#F5F3EC]' : 'text-[#1C1C1A]'
                     }`}>

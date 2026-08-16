@@ -14,10 +14,9 @@ const Navbar = ({ isDark, toggleTheme, activeSection, scrollToSection }) => {
     }, []);
 
     const navItems = [
-        { id: 'home', num: '00', label: 'INDEX' },
-        { id: 'projects', num: '01', label: 'SELECTED WORK' },
-        { id: 'about', num: '02', label: 'ABOUT' },
-        { id: 'contact', num: '03', label: 'CONTACT' }
+        { id: 'projects', label: 'WORK' },
+        { id: 'about', label: 'ABOUT' },
+        { id: 'contact', label: 'CONTACT' }
     ];
 
     const handleNavClick = (sectionId) => {
@@ -36,7 +35,7 @@ const Navbar = ({ isDark, toggleTheme, activeSection, scrollToSection }) => {
             <div className="max-w-6xl mx-auto px-6 md:px-10 h-16 md:h-20 flex items-center justify-between">
                 {/* Brand / Logo */}
                 <button
-                    onClick={() => handleNavClick('home')}
+                    onClick={() => scrollToSection('home')}
                     className="text-left group cursor-pointer focus:outline-none"
                 >
                     <span className="text-base sm:text-lg font-bold tracking-[0.12em] uppercase">
@@ -51,7 +50,7 @@ const Navbar = ({ isDark, toggleTheme, activeSection, scrollToSection }) => {
                             <button
                                 key={item.id}
                                 onClick={() => handleNavClick(item.id)}
-                                className={`text-xs font-semibold tracking-[0.15em] transition-colors cursor-pointer py-1 ${
+                                className={`text-xs font-semibold tracking-[0.15em] uppercase transition-colors cursor-pointer py-1 ${
                                     activeSection === item.id
                                         ? isDark
                                             ? 'text-white border-b border-white'
@@ -61,7 +60,6 @@ const Navbar = ({ isDark, toggleTheme, activeSection, scrollToSection }) => {
                                             : 'text-[#75746E] hover:text-[#1C1C1A]'
                                 }`}
                             >
-                                <span className="opacity-50 mr-1.5">{item.num}</span>
                                 {item.label}
                             </button>
                         ))}
@@ -134,7 +132,6 @@ const Navbar = ({ isDark, toggleTheme, activeSection, scrollToSection }) => {
                                         : isDark ? 'text-[#8E8D86]' : 'text-[#75746E]'
                                 }`}
                             >
-                                <span className="opacity-50 mr-2">{item.num}</span>
                                 {item.label}
                             </button>
                         ))}

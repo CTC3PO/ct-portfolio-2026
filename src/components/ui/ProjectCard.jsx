@@ -12,14 +12,6 @@ const ProjectCard = ({ project, isDark }) => {
                     : 'border-[#DDD9CE] bg-[#F2EFE7]/50 hover:border-[#B5B0A2]'
             }`}
         >
-            {/* Top Bar: Number & Category */}
-            <div className={`px-6 py-3 border-b flex items-center justify-between text-xs font-semibold tracking-[0.15em] uppercase ${
-                isDark ? 'border-[#2E2C28] text-[#8E8D86]' : 'border-[#DDD9CE] text-[#75746E]'
-            }`}>
-                <span>{project.number || '00'}</span>
-                <span className={isDark ? 'text-[#C89B6D]' : 'text-[#7A4623]'}>PROJECT</span>
-            </div>
-
             {/* Image Container */}
             <div className={`relative w-full aspect-[16/10] overflow-hidden border-b ${
                 isDark ? 'border-[#2E2C28] bg-[#141413]' : 'border-[#DDD9CE] bg-[#EAE6DC]'
