@@ -1,41 +1,48 @@
 import React from 'react';
 import { Github, Linkedin, FileText, Mail, ArrowDown } from 'lucide-react';
-import { bioData } from '../../data/projects';
 
 const HeroSection = ({ isDark, scrollToSection }) => {
     return (
         <section id="home" className="pt-36 pb-24 md:pt-48 md:pb-36 px-6 relative">
-            <div className="max-w-4xl mx-auto">
-                {/* Location / Status Pill */}
-                <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full mb-8 text-xs font-medium border transition-colors duration-200 border-neutral-200 dark:border-slate-800 bg-neutral-50 dark:bg-slate-800/50 text-neutral-600 dark:text-slate-300">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                    <span>Based in Philadelphia & NYC</span>
-                    <span className="text-neutral-400 dark:text-slate-500">•</span>
-                    <span>Open to Opportunities</span>
+            <div className="max-w-4xl mx-auto text-left">
+                {/* Profile Photo */}
+                <div className="mb-10 inline-block">
+                    <div className={`w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 transition-transform duration-300 hover:scale-105 ${
+                        isDark ? 'border-slate-700 bg-slate-800' : 'border-neutral-200 bg-neutral-100 shadow-sm'
+                    }`}>
+                        <img
+                            src="/images/profile.jpg"
+                            alt="Chau Tran"
+                            className="w-full h-full object-cover"
+                            onError={(e) => {
+                                e.target.src = 'https://ui-avatars.com/api/?name=Chau+Tran&background=0D8ABC&color=fff&size=256';
+                            }}
+                        />
+                    </div>
                 </div>
 
                 {/* Main Headline */}
-                <h1 className={`text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-6 leading-[1.08] ${
+                <h1 className={`text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-4 leading-none ${
                     isDark ? 'text-white' : 'text-neutral-900'
                 }`}>
-                    {bioData.name}
+                    Chau Tran
                 </h1>
 
                 {/* Subtitle */}
-                <h2 className={`text-2xl sm:text-3xl md:text-3xl font-medium tracking-tight mb-8 ${
+                <h2 className={`text-2xl sm:text-3xl font-medium tracking-tight mb-8 ${
                     isDark ? 'text-blue-400' : 'text-blue-600'
                 }`}>
-                    {bioData.title}
+                    Full Stack Developer
                 </h2>
 
-                {/* Narrative Summary */}
+                {/* Exact Bio */}
                 <p className={`text-lg sm:text-xl md:text-xl leading-relaxed mb-12 max-w-3xl font-normal ${
                     isDark ? 'text-slate-300' : 'text-neutral-600'
                 }`}>
-                    Full-stack developer with a background in urban systems at the <span className="font-semibold text-neutral-900 dark:text-white">NYC Department of City Planning</span>, completing a Master's in IT at the <span className="font-semibold text-neutral-900 dark:text-white">University of Pennsylvania</span>. Crafting high-utility web applications, 3D spatial platforms, and intelligent machine learning systems.
+                    Full-stack developer specializing in modern web technologies, while actively exploring machine learning and big data to build more intelligent solutions.
                 </p>
 
-                {/* CTAs and Social Links */}
+                {/* Actions & Social Links */}
                 <div className="flex flex-col sm:flex-row sm:items-center space-y-6 sm:space-y-0 sm:space-x-8">
                     <div className="flex items-center space-x-4">
                         <button
@@ -46,7 +53,7 @@ const HeroSection = ({ isDark, scrollToSection }) => {
                                     : 'bg-neutral-900 text-white hover:bg-neutral-800'
                             }`}
                         >
-                            View Selected Work
+                            View My Work
                             <ArrowDown size={16} className="ml-2" />
                         </button>
 
@@ -65,25 +72,25 @@ const HeroSection = ({ isDark, scrollToSection }) => {
                     {/* Social Icons */}
                     <div className="flex items-center space-x-5 pt-2 sm:pt-0 border-t sm:border-t-0 border-neutral-200 dark:border-slate-800">
                         <SocialIcon
-                            href={bioData.socials.github}
+                            href="https://github.com/CTC3PO"
                             icon={<Github size={20} />}
                             label="GitHub"
                             isDark={isDark}
                         />
                         <SocialIcon
-                            href={bioData.socials.linkedin}
+                            href="https://www.linkedin.com/in/chautrancmt26/"
                             icon={<Linkedin size={20} />}
                             label="LinkedIn"
                             isDark={isDark}
                         />
                         <SocialIcon
-                            href={bioData.socials.resume}
+                            href="/Ctran_Resume_v2.pdf"
                             icon={<FileText size={20} />}
                             label="Resume"
                             isDark={isDark}
                         />
                         <SocialIcon
-                            href={`mailto:${bioData.socials.email}`}
+                            href="mailto:ctran@alumni.upenn.edu"
                             icon={<Mail size={20} />}
                             label="Email"
                             isDark={isDark}

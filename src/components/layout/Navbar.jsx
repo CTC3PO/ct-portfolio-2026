@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Sun, Moon, Menu, X, ArrowUpRight } from 'lucide-react';
-import { bioData } from '../../data/projects';
 
 const Navbar = ({ isDark, toggleTheme, activeSection, scrollToSection }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -45,7 +44,7 @@ const Navbar = ({ isDark, toggleTheme, activeSection, scrollToSection }) => {
                     <span className={`text-lg font-bold tracking-tight transition-colors ${
                         isDark ? 'text-white group-hover:text-blue-400' : 'text-neutral-900 group-hover:text-blue-600'
                     }`}>
-                        {bioData.name}
+                        Chau Tran
                     </span>
                     <span className={`hidden sm:inline-block ml-3 text-xs px-2.5 py-0.5 rounded-full font-medium ${
                         isDark ? 'bg-slate-800 text-slate-400' : 'bg-neutral-100 text-neutral-600'
@@ -86,7 +85,7 @@ const Navbar = ({ isDark, toggleTheme, activeSection, scrollToSection }) => {
                     {/* Resume CTA & Theme Toggle */}
                     <div className="flex items-center space-x-4">
                         <a
-                            href={bioData.socials.resume}
+                            href="/Ctran_Resume_v2.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
                             className={`inline-flex items-center text-xs font-semibold px-4 py-2 rounded-full transition-all duration-200 transform active:scale-95 ${
@@ -160,7 +159,7 @@ const Navbar = ({ isDark, toggleTheme, activeSection, scrollToSection }) => {
                     </div>
                     <div className="pt-3 border-t border-neutral-200 dark:border-slate-800 flex justify-between items-center">
                         <a
-                            href={bioData.socials.resume}
+                            href="/Ctran_Resume_v2.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
                             className={`inline-flex items-center text-xs font-semibold px-4 py-2.5 rounded-full ${

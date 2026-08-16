@@ -1,20 +1,12 @@
 import React, { useState } from 'react';
-import { Mail, Github, Linkedin, FileText, Send, Check, Copy } from 'lucide-react';
-import { bioData } from '../../data/projects';
+import { Mail, Github, Linkedin, FileText, Send, MessageCircle } from 'lucide-react';
 
 const ContactSection = ({ isDark }) => {
-    const [copied, setCopied] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         message: ''
     });
-
-    const copyEmail = () => {
-        navigator.clipboard.writeText(bioData.socials.email);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
-    };
 
     const handleFormChange = (e) => {
         setFormData({
@@ -25,181 +17,133 @@ const ContactSection = ({ isDark }) => {
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        const subject = `Portfolio Inquiry from ${formData.name}`;
+        const subject = `Portfolio Contact from ${formData.name}`;
         const body = `Hello Chau,\n\n${formData.message}\n\nBest regards,\n${formData.name}\n${formData.email}`;
-        const mailtoLink = `mailto:${bioData.socials.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        const mailtoLink = `mailto:ctran@alumni.upenn.edu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         window.location.href = mailtoLink;
         setFormData({ name: '', email: '', message: '' });
     };
 
     return (
         <section id="contact" className="py-28 md:py-36 px-6 border-t border-neutral-200/60 dark:border-slate-800/80">
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-5xl mx-auto">
                 <div className="text-center mb-16">
-                    <span className={`text-xs font-bold uppercase tracking-wider mb-2 block ${
-                        isDark ? 'text-blue-400' : 'text-blue-600'
-                    }`}>
-                        Get In Touch
-                    </span>
-                    <h2 className={`text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4 ${
+                    <h2 className={`text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-3 ${
                         isDark ? 'text-white' : 'text-neutral-900'
                     }`}>
                         Let's Connect
                     </h2>
-                    <p className={`text-base md:text-lg max-w-xl mx-auto ${
+                    <p className={`text-base md:text-lg max-w-2xl mx-auto ${
                         isDark ? 'text-slate-400' : 'text-neutral-600'
                     }`}>
-                        Open to full-time opportunities, collaborations in spatial computing, and technical discussions.
+                        I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology
                     </p>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-10">
-                    {/* Left: Contact Info & Quick Actions */}
-                    <div className="flex flex-col justify-between space-y-8">
+                <div className={`grid md:grid-cols-2 rounded-2xl border transition-colors overflow-hidden ${
+                    isDark ? 'bg-[#151D2A] border-slate-800/80' : 'bg-white border-neutral-200/80 shadow-sm'
+                }`}>
+                    {/* Left: Get in Touch */}
+                    <div className="p-8 md:p-12 flex flex-col justify-between">
                         <div>
-                            <h3 className={`text-xl font-bold mb-4 ${isDark ? 'text-white' : 'text-neutral-900'}`}>
-                                Direct Contact
-                            </h3>
-                            <p className={`text-sm leading-relaxed mb-6 ${isDark ? 'text-slate-300' : 'text-neutral-600'}`}>
-                                Feel free to reach out directly via email or connect on professional platforms.
-                            </p>
-
-                            {/* 1-Click Email Copy Card */}
-                            <div className={`p-4 rounded-xl border flex items-center justify-between transition-colors mb-6 ${
-                                isDark ? 'bg-[#141B28] border-slate-800/80' : 'bg-neutral-50 border-neutral-200/80'
+                            <h3 className={`text-2xl font-bold mb-8 flex items-center ${
+                                isDark ? 'text-blue-400' : 'text-blue-600'
                             }`}>
-                                <div className="flex items-center space-x-3 overflow-hidden">
-                                    <Mail size={18} className="text-blue-500 shrink-0" />
-                                    <span className={`text-sm font-medium truncate ${isDark ? 'text-white' : 'text-neutral-900'}`}>
-                                        {bioData.socials.email}
-                                    </span>
-                                </div>
-                                <button
-                                    onClick={copyEmail}
-                                    className={`inline-flex items-center text-xs font-semibold px-3 py-1.5 rounded-lg transition-colors cursor-pointer shrink-0 ml-3 ${
-                                        copied
-                                            ? 'bg-emerald-500 text-white'
-                                            : isDark
-                                                ? 'bg-slate-800 text-slate-200 hover:bg-slate-700'
-                                                : 'bg-white text-neutral-800 border border-neutral-200 hover:bg-neutral-100 shadow-xs'
-                                    }`}
-                                >
-                                    {copied ? (
-                                        <>
-                                            <Check size={12} className="mr-1" />
-                                            Copied!
-                                        </>
-                                    ) : (
-                                        <>
-                                            <Copy size={12} className="mr-1" />
-                                            Copy
-                                        </>
-                                    )}
-                                </button>
-                            </div>
-                        </div>
+                                <MessageCircle size={24} className="mr-3" />
+                                Get in Touch
+                            </h3>
 
-                        {/* Social Links List */}
-                        <div className="space-y-3">
-                            <ContactLink
-                                icon={<Linkedin size={18} />}
-                                label="LinkedIn"
-                                text="linkedin.com/in/chautrancmt26"
-                                href={bioData.socials.linkedin}
-                                isDark={isDark}
-                            />
-                            <ContactLink
-                                icon={<Github size={18} />}
-                                label="GitHub"
-                                text="github.com/CTC3PO"
-                                href={bioData.socials.github}
-                                isDark={isDark}
-                            />
-                            <ContactLink
-                                icon={<FileText size={18} />}
-                                label="Resume"
-                                text="View Resume (PDF)"
-                                href={bioData.socials.resume}
-                                isDark={isDark}
-                            />
+                            <div className="space-y-5">
+                                <ContactLink
+                                    icon={<Mail size={18} />}
+                                    text="ctran@alumni.upenn.edu"
+                                    href="mailto:ctran@alumni.upenn.edu"
+                                    isDark={isDark}
+                                />
+                                <ContactLink
+                                    icon={<Github size={18} />}
+                                    text="github.com/CTC3PO"
+                                    href="https://github.com/CTC3PO"
+                                    isDark={isDark}
+                                />
+                                <ContactLink
+                                    icon={<Linkedin size={18} />}
+                                    text="linkedin.com/in/chautrancmt26"
+                                    href="https://www.linkedin.com/in/chautrancmt26/"
+                                    isDark={isDark}
+                                />
+                                <ContactLink
+                                    icon={<FileText size={18} />}
+                                    text="Resume"
+                                    href="/Ctran_Resume_v2.pdf"
+                                    isDark={isDark}
+                                />
+                            </div>
                         </div>
                     </div>
 
-                    {/* Right: Clean Inquiry Form */}
-                    <div className={`p-8 rounded-2xl border transition-colors ${
-                        isDark ? 'bg-[#141B28] border-slate-800/80' : 'bg-white border-neutral-200/80 shadow-sm'
+                    {/* Right: Message Form */}
+                    <div className={`p-8 md:p-12 border-t md:border-t-0 md:border-l ${
+                        isDark ? 'bg-[#111824] border-slate-800/80' : 'bg-neutral-50/60 border-neutral-200/80'
                     }`}>
-                        <h3 className={`text-lg font-bold mb-6 ${isDark ? 'text-white' : 'text-neutral-900'}`}>
-                            Send a Message
-                        </h3>
-
                         <form onSubmit={handleFormSubmit} className="space-y-4">
                             <div>
-                                <label className={`block text-xs font-medium mb-1.5 ${isDark ? 'text-slate-300' : 'text-neutral-700'}`}>
-                                    Your Name
-                                </label>
                                 <input
                                     type="text"
                                     name="name"
                                     value={formData.name}
                                     onChange={handleFormChange}
-                                    placeholder="Jane Doe"
+                                    placeholder="Your Name"
                                     required
-                                    className={`w-full px-4 py-2.5 rounded-lg text-sm border outline-none transition-colors ${
+                                    className={`w-full px-4 py-3 rounded-xl text-sm border outline-none transition-colors ${
                                         isDark
                                             ? 'bg-slate-900/80 border-slate-700 text-white placeholder-slate-500 focus:border-blue-500'
-                                            : 'bg-neutral-50 border-neutral-200 text-neutral-900 placeholder-neutral-400 focus:border-neutral-900'
+                                            : 'bg-white border-neutral-200 text-neutral-900 placeholder-neutral-400 focus:border-neutral-900'
                                     }`}
                                 />
                             </div>
 
                             <div>
-                                <label className={`block text-xs font-medium mb-1.5 ${isDark ? 'text-slate-300' : 'text-neutral-700'}`}>
-                                    Your Email
-                                </label>
                                 <input
                                     type="email"
                                     name="email"
                                     value={formData.email}
                                     onChange={handleFormChange}
-                                    placeholder="jane@example.com"
+                                    placeholder="Your Email"
                                     required
-                                    className={`w-full px-4 py-2.5 rounded-lg text-sm border outline-none transition-colors ${
+                                    className={`w-full px-4 py-3 rounded-xl text-sm border outline-none transition-colors ${
                                         isDark
                                             ? 'bg-slate-900/80 border-slate-700 text-white placeholder-slate-500 focus:border-blue-500'
-                                            : 'bg-neutral-50 border-neutral-200 text-neutral-900 placeholder-neutral-400 focus:border-neutral-900'
+                                            : 'bg-white border-neutral-200 text-neutral-900 placeholder-neutral-400 focus:border-neutral-900'
                                     }`}
                                 />
                             </div>
 
                             <div>
-                                <label className={`block text-xs font-medium mb-1.5 ${isDark ? 'text-slate-300' : 'text-neutral-700'}`}>
-                                    Message
-                                </label>
                                 <textarea
                                     name="message"
                                     value={formData.message}
                                     onChange={handleFormChange}
-                                    placeholder="Hi Chau, I'd like to talk about..."
+                                    placeholder="Your Message..."
                                     required
                                     rows="4"
-                                    className={`w-full px-4 py-2.5 rounded-lg text-sm border outline-none transition-colors resize-none ${
+                                    className={`w-full px-4 py-3 rounded-xl text-sm border outline-none transition-colors resize-none ${
                                         isDark
                                             ? 'bg-slate-900/80 border-slate-700 text-white placeholder-slate-500 focus:border-blue-500'
-                                            : 'bg-neutral-50 border-neutral-200 text-neutral-900 placeholder-neutral-400 focus:border-neutral-900'
+                                            : 'bg-white border-neutral-200 text-neutral-900 placeholder-neutral-400 focus:border-neutral-900'
                                     }`}
                                 />
                             </div>
 
                             <button
                                 type="submit"
-                                className={`w-full py-3 rounded-lg text-sm font-semibold transition-all duration-200 flex items-center justify-center cursor-pointer active:scale-98 ${
+                                className={`w-full py-3.5 rounded-xl text-sm font-semibold transition-all duration-200 flex items-center justify-center cursor-pointer active:scale-98 shadow-sm ${
                                     isDark
                                         ? 'bg-white text-slate-900 hover:bg-slate-100'
                                         : 'bg-neutral-900 text-white hover:bg-neutral-800'
                                 }`}
                             >
-                                <Send size={15} className="mr-2" />
+                                <Send size={16} className="mr-2" />
                                 Send Message
                             </button>
                         </form>
@@ -221,8 +165,8 @@ const ContactLink = ({ icon, text, href, isDark }) => (
                 : 'border-neutral-200/80 hover:bg-neutral-50 text-neutral-700 hover:text-neutral-900'
         }`}
     >
-        <span className="text-blue-500">{icon}</span>
-        <span className="text-xs font-medium truncate">{text}</span>
+        <span className={isDark ? 'text-blue-400' : 'text-blue-600'}>{icon}</span>
+        <span className="text-sm font-medium truncate">{text}</span>
     </a>
 );
 
