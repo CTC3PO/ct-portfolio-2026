@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, ArrowUpRight, Play } from 'lucide-react';
+import { Github, ArrowUpRight } from 'lucide-react';
 
 const ProjectCard = ({ project, isDark }) => {
     const isDualImage = Array.isArray(project.image);
@@ -8,18 +8,18 @@ const ProjectCard = ({ project, isDark }) => {
         <article
             className={`group rounded-2xl overflow-hidden border transition-all duration-300 flex flex-col ${
                 isDark
-                    ? 'bg-[#141B28] border-slate-800/80 hover:border-slate-700 hover:shadow-xl hover:shadow-black/20'
-                    : 'bg-white border-neutral-200/80 hover:border-neutral-300 hover:shadow-xl hover:shadow-neutral-900/5'
+                    ? 'bg-[#151D2A] border-[#222C3D] hover:border-[#2E3B50] hover:shadow-xl hover:shadow-black/20'
+                    : 'bg-white border-[#E6E1D5] hover:border-[#CCC5B4] hover:shadow-xl hover:shadow-[#1E1D1A]/5'
             }`}
         >
             {/* Project Image Container */}
             <div className={`relative w-full overflow-hidden aspect-[16/10] border-b ${
-                isDark ? 'bg-slate-900 border-slate-800/80' : 'bg-neutral-100 border-neutral-200/60'
+                isDark ? 'bg-[#0E131C] border-[#222C3D]' : 'bg-[#EAE5D8] border-[#E6E1D5]'
             }`}>
                 {isDualImage ? (
-                    <div className="w-full h-full grid grid-cols-2 gap-1 p-2 bg-neutral-900/20">
+                    <div className="w-full h-full grid grid-cols-2 gap-1 p-2 bg-neutral-900/10">
                         {project.image.map((img, idx) => (
-                            <div key={idx} className="w-full h-full rounded-lg overflow-hidden bg-neutral-900/50">
+                            <div key={idx} className="w-full h-full rounded-lg overflow-hidden bg-neutral-900/20">
                                 <img
                                     src={img}
                                     alt={`${project.title} screenshot ${idx + 1}`}
@@ -41,40 +41,19 @@ const ProjectCard = ({ project, isDark }) => {
                         }}
                     />
                 )}
-
-                {/* Subtle category badge overlay */}
-                {project.category && (
-                    <div className="absolute top-3 left-3">
-                        <span className={`text-[11px] font-semibold px-2.5 py-1 rounded-full backdrop-blur-md ${
-                            isDark
-                                ? 'bg-slate-900/80 text-slate-300 border border-slate-700/50'
-                                : 'bg-white/90 text-neutral-700 border border-neutral-200/80 shadow-xs'
-                        }`}>
-                            {project.category}
-                        </span>
-                    </div>
-                )}
             </div>
 
             {/* Content Area */}
             <div className="p-6 md:p-8 flex-1 flex flex-col justify-between">
                 <div>
-                    <h3 className={`text-xl md:text-2xl font-bold tracking-tight mb-2 transition-colors ${
-                        isDark ? 'text-white group-hover:text-blue-400' : 'text-neutral-900 group-hover:text-blue-600'
+                    <h3 className={`text-xl md:text-2xl font-bold tracking-tight mb-3 transition-colors ${
+                        isDark ? 'text-white group-hover:text-[#F59E0B]' : 'text-[#1E1D1A] group-hover:text-[#B45309]'
                     }`}>
                         {project.title}
                     </h3>
 
-                    {project.tagline && (
-                        <p className={`text-xs font-medium uppercase tracking-wider mb-4 ${
-                            isDark ? 'text-blue-400/90' : 'text-blue-600/90'
-                        }`}>
-                            {project.tagline}
-                        </p>
-                    )}
-
                     <p className={`text-sm md:text-base leading-relaxed mb-6 font-normal ${
-                        isDark ? 'text-slate-300' : 'text-neutral-600'
+                        isDark ? 'text-[#D5D2CA]' : 'text-[#55524B]'
                     }`}>
                         {project.description}
                     </p>
@@ -86,8 +65,8 @@ const ProjectCard = ({ project, isDark }) => {
                                 key={tech}
                                 className={`text-xs font-medium px-2.5 py-1 rounded-md transition-colors ${
                                     isDark
-                                        ? 'bg-slate-800/80 text-slate-300 border border-slate-700/60'
-                                        : 'bg-neutral-100 text-neutral-700 border border-neutral-200/60'
+                                        ? 'bg-[#1E2838] text-[#D5D2CA] border border-[#2E3B50]'
+                                        : 'bg-[#F2EFE8] text-[#4A463D] border border-[#E2DDD0]'
                                 }`}
                             >
                                 {tech}
@@ -98,7 +77,7 @@ const ProjectCard = ({ project, isDark }) => {
 
                 {/* Action Links */}
                 <div className={`pt-4 border-t flex items-center space-x-5 ${
-                    isDark ? 'border-slate-800/80' : 'border-neutral-200/60'
+                    isDark ? 'border-[#222C3D]' : 'border-[#E6E1D5]'
                 }`}>
                     {project.live && (
                         <a
@@ -107,8 +86,8 @@ const ProjectCard = ({ project, isDark }) => {
                             rel="noopener noreferrer"
                             className={`inline-flex items-center text-sm font-semibold transition-colors ${
                                 isDark
-                                    ? 'text-white hover:text-blue-400'
-                                    : 'text-neutral-900 hover:text-blue-600'
+                                    ? 'text-white hover:text-[#F59E0B]'
+                                    : 'text-[#1E1D1A] hover:text-[#B45309]'
                             }`}
                         >
                             {project.title.includes('Virtual') ? 'Watch Demo' : 'Live Demo'}
@@ -124,7 +103,7 @@ const ProjectCard = ({ project, isDark }) => {
                             className={`inline-flex items-center text-sm font-medium transition-colors ${
                                 isDark
                                     ? 'text-slate-400 hover:text-white'
-                                    : 'text-neutral-500 hover:text-neutral-900'
+                                    : 'text-[#68655E] hover:text-[#1E1D1A]'
                             }`}
                         >
                             <Github size={15} className="mr-1.5" />

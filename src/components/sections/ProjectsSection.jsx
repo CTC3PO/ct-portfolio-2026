@@ -4,17 +4,19 @@ import { projects } from '../../data/projects';
 
 const ProjectsSection = ({ isDark }) => {
     return (
-        <section id="projects" className="py-28 md:py-36 px-6 border-t border-neutral-200/60 dark:border-slate-800/80">
+        <section id="projects" className={`py-28 md:py-36 px-6 border-t ${
+            isDark ? 'border-[#222C3D]' : 'border-[#E6E1D5]'
+        }`}>
             <div className="max-w-6xl mx-auto">
                 {/* Section Header */}
                 <div className="mb-16">
                     <h2 className={`text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-3 ${
-                        isDark ? 'text-white' : 'text-neutral-900'
+                        isDark ? 'text-white' : 'text-[#1E1D1A]'
                     }`}>
                         Featured Projects
                     </h2>
                     <p className={`text-base md:text-lg max-w-2xl ${
-                        isDark ? 'text-slate-400' : 'text-neutral-600'
+                        isDark ? 'text-[#8E97A6]' : 'text-[#68655E]'
                     }`}>
                         Here are some of my recent projects that showcase my skills and passion for development
                     </p>

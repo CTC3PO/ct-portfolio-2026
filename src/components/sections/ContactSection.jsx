@@ -25,29 +25,31 @@ const ContactSection = ({ isDark }) => {
     };
 
     return (
-        <section id="contact" className="py-28 md:py-36 px-6 border-t border-neutral-200/60 dark:border-slate-800/80">
+        <section id="contact" className={`py-28 md:py-36 px-6 border-t ${
+            isDark ? 'border-[#222C3D]' : 'border-[#E6E1D5]'
+        }`}>
             <div className="max-w-5xl mx-auto">
                 <div className="text-center mb-16">
                     <h2 className={`text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-3 ${
-                        isDark ? 'text-white' : 'text-neutral-900'
+                        isDark ? 'text-white' : 'text-[#1E1D1A]'
                     }`}>
                         Let's Connect
                     </h2>
                     <p className={`text-base md:text-lg max-w-2xl mx-auto ${
-                        isDark ? 'text-slate-400' : 'text-neutral-600'
+                        isDark ? 'text-[#8E97A6]' : 'text-[#68655E]'
                     }`}>
                         I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology
                     </p>
                 </div>
 
                 <div className={`grid md:grid-cols-2 rounded-2xl border transition-colors overflow-hidden ${
-                    isDark ? 'bg-[#151D2A] border-slate-800/80' : 'bg-white border-neutral-200/80 shadow-sm'
+                    isDark ? 'bg-[#151D2A] border-[#222C3D]' : 'bg-white border-[#E6E1D5] shadow-sm'
                 }`}>
                     {/* Left: Get in Touch */}
                     <div className="p-8 md:p-12 flex flex-col justify-between">
                         <div>
                             <h3 className={`text-2xl font-bold mb-8 flex items-center ${
-                                isDark ? 'text-blue-400' : 'text-blue-600'
+                                isDark ? 'text-[#F59E0B]' : 'text-[#B45309]'
                             }`}>
                                 <MessageCircle size={24} className="mr-3" />
                                 Get in Touch
@@ -84,7 +86,7 @@ const ContactSection = ({ isDark }) => {
 
                     {/* Right: Message Form */}
                     <div className={`p-8 md:p-12 border-t md:border-t-0 md:border-l ${
-                        isDark ? 'bg-[#111824] border-slate-800/80' : 'bg-neutral-50/60 border-neutral-200/80'
+                        isDark ? 'bg-[#111824] border-[#222C3D]' : 'bg-[#F9F7F2] border-[#E6E1D5]'
                     }`}>
                         <form onSubmit={handleFormSubmit} className="space-y-4">
                             <div>
@@ -97,8 +99,8 @@ const ContactSection = ({ isDark }) => {
                                     required
                                     className={`w-full px-4 py-3 rounded-xl text-sm border outline-none transition-colors ${
                                         isDark
-                                            ? 'bg-slate-900/80 border-slate-700 text-white placeholder-slate-500 focus:border-blue-500'
-                                            : 'bg-white border-neutral-200 text-neutral-900 placeholder-neutral-400 focus:border-neutral-900'
+                                            ? 'bg-[#0E131C] border-[#222C3D] text-white placeholder-slate-500 focus:border-[#F59E0B]'
+                                            : 'bg-white border-[#DDD7C8] text-[#1E1D1A] placeholder-[#8E8A80] focus:border-[#B45309]'
                                     }`}
                                 />
                             </div>
@@ -113,8 +115,8 @@ const ContactSection = ({ isDark }) => {
                                     required
                                     className={`w-full px-4 py-3 rounded-xl text-sm border outline-none transition-colors ${
                                         isDark
-                                            ? 'bg-slate-900/80 border-slate-700 text-white placeholder-slate-500 focus:border-blue-500'
-                                            : 'bg-white border-neutral-200 text-neutral-900 placeholder-neutral-400 focus:border-neutral-900'
+                                            ? 'bg-[#0E131C] border-[#222C3D] text-white placeholder-slate-500 focus:border-[#F59E0B]'
+                                            : 'bg-white border-[#DDD7C8] text-[#1E1D1A] placeholder-[#8E8A80] focus:border-[#B45309]'
                                     }`}
                                 />
                             </div>
@@ -129,8 +131,8 @@ const ContactSection = ({ isDark }) => {
                                     rows="4"
                                     className={`w-full px-4 py-3 rounded-xl text-sm border outline-none transition-colors resize-none ${
                                         isDark
-                                            ? 'bg-slate-900/80 border-slate-700 text-white placeholder-slate-500 focus:border-blue-500'
-                                            : 'bg-white border-neutral-200 text-neutral-900 placeholder-neutral-400 focus:border-neutral-900'
+                                            ? 'bg-[#0E131C] border-[#222C3D] text-white placeholder-slate-500 focus:border-[#F59E0B]'
+                                            : 'bg-white border-[#DDD7C8] text-[#1E1D1A] placeholder-[#8E8A80] focus:border-[#B45309]'
                                     }`}
                                 />
                             </div>
@@ -140,7 +142,7 @@ const ContactSection = ({ isDark }) => {
                                 className={`w-full py-3.5 rounded-xl text-sm font-semibold transition-all duration-200 flex items-center justify-center cursor-pointer active:scale-98 shadow-sm ${
                                     isDark
                                         ? 'bg-white text-slate-900 hover:bg-slate-100'
-                                        : 'bg-neutral-900 text-white hover:bg-neutral-800'
+                                        : 'bg-[#1E1D1A] text-[#F7F5F0] hover:bg-neutral-800'
                                 }`}
                             >
                                 <Send size={16} className="mr-2" />
@@ -161,11 +163,11 @@ const ContactLink = ({ icon, text, href, isDark }) => (
         rel={href.startsWith('mailto') ? undefined : "noopener noreferrer"}
         className={`flex items-center space-x-3 p-3 rounded-xl border transition-colors ${
             isDark
-                ? 'border-slate-800/80 hover:bg-slate-800/60 text-slate-300 hover:text-white'
-                : 'border-neutral-200/80 hover:bg-neutral-50 text-neutral-700 hover:text-neutral-900'
+                ? 'border-[#222C3D] hover:bg-[#1E2838] text-[#D5D2CA] hover:text-white'
+                : 'border-[#E6E1D5] hover:bg-[#ECE8DC] text-[#4A463D] hover:text-[#1E1D1A]'
         }`}
     >
-        <span className={isDark ? 'text-blue-400' : 'text-blue-600'}>{icon}</span>
+        <span className={isDark ? 'text-[#F59E0B]' : 'text-[#B45309]'}>{icon}</span>
         <span className="text-sm font-medium truncate">{text}</span>
     </a>
 );
