@@ -6,20 +6,20 @@ const ProjectCard = ({ project, isDark }) => {
 
     return (
         <article
-            className={`group rounded-2xl overflow-hidden border transition-all duration-300 flex flex-col ${
+            className={`group rounded-3xl overflow-hidden border transition-all duration-300 flex flex-col ${
                 isDark
-                    ? 'bg-[#282D36] border-[#3A4250] hover:border-[#4E586A] hover:shadow-xl hover:shadow-black/20'
-                    : 'bg-white border-[#E6E1D5] hover:border-[#CCC5B4] hover:shadow-xl hover:shadow-[#1E1D1A]/5'
+                    ? 'bg-[#242A34] border-[#363E4D] hover:border-[#4E586A] hover:shadow-2xl hover:shadow-black/20'
+                    : 'bg-white border-[#EDE8DE] hover:border-[#DDD6C8] hover:shadow-2xl hover:shadow-[#1E1D1A]/4'
             }`}
         >
             {/* Project Image Container */}
             <div className={`relative w-full overflow-hidden aspect-[16/10] border-b ${
-                isDark ? 'bg-[#1B1E24] border-[#3A4250]' : 'bg-[#EAE5D8] border-[#E6E1D5]'
+                isDark ? 'bg-[#181C23] border-[#363E4D]' : 'bg-[#F2ECE1] border-[#EDE8DE]'
             }`}>
                 {isDualImage ? (
-                    <div className="w-full h-full grid grid-cols-2 gap-1 p-2 bg-neutral-900/10">
+                    <div className="w-full h-full grid grid-cols-2 gap-1.5 p-3 bg-neutral-900/10">
                         {project.image.map((img, idx) => (
-                            <div key={idx} className="w-full h-full rounded-lg overflow-hidden bg-neutral-900/20">
+                            <div key={idx} className="w-full h-full rounded-xl overflow-hidden bg-neutral-900/20">
                                 <img
                                     src={img}
                                     alt={`${project.title} screenshot ${idx + 1}`}
@@ -44,29 +44,29 @@ const ProjectCard = ({ project, isDark }) => {
             </div>
 
             {/* Content Area */}
-            <div className="p-6 md:p-8 flex-1 flex flex-col justify-between">
+            <div className="p-8 md:p-10 flex-1 flex flex-col justify-between">
                 <div>
-                    <h3 className={`text-xl md:text-2xl font-bold tracking-tight mb-3 transition-colors ${
+                    <h3 className={`text-2xl md:text-3xl font-bold tracking-tight mb-3 transition-colors ${
                         isDark ? 'text-[#F0F2F5] group-hover:text-[#E5A84B]' : 'text-[#1E1D1A] group-hover:text-[#B45309]'
                     }`}>
                         {project.title}
                     </h3>
 
-                    <p className={`text-sm md:text-base leading-relaxed mb-6 font-normal ${
+                    <p className={`text-base leading-relaxed mb-8 font-normal ${
                         isDark ? 'text-[#CBD2DC]' : 'text-[#55524B]'
                     }`}>
                         {project.description}
                     </p>
 
                     {/* Tech Badges */}
-                    <div className="flex flex-wrap gap-2 mb-6">
+                    <div className="flex flex-wrap gap-2 mb-8">
                         {project.tech.map((tech) => (
                             <span
                                 key={tech}
-                                className={`text-xs font-medium px-2.5 py-1 rounded-md transition-colors ${
+                                className={`text-xs font-medium px-3 py-1.5 rounded-lg transition-colors ${
                                     isDark
-                                        ? 'bg-[#1E2228] text-[#CBD2DC] border border-[#3A4250]'
-                                        : 'bg-[#F2EFE8] text-[#4A463D] border border-[#E2DDD0]'
+                                        ? 'bg-[#1C2026] text-[#CBD2DC] border border-[#363E4D]'
+                                        : 'bg-[#F7F4EC] text-[#4A463D] border border-[#E8E2D4]'
                                 }`}
                             >
                                 {tech}
@@ -76,8 +76,8 @@ const ProjectCard = ({ project, isDark }) => {
                 </div>
 
                 {/* Action Links */}
-                <div className={`pt-4 border-t flex items-center space-x-5 ${
-                    isDark ? 'border-[#3A4250]' : 'border-[#E6E1D5]'
+                <div className={`pt-6 border-t flex items-center space-x-6 ${
+                    isDark ? 'border-[#363E4D]' : 'border-[#EDE8DE]'
                 }`}>
                     {project.live && (
                         <a

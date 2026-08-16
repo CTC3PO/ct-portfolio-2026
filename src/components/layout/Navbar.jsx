@@ -30,8 +30,8 @@ const Navbar = ({ isDark, toggleTheme, activeSection, scrollToSection }) => {
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
                 scrolled
                     ? isDark
-                        ? 'bg-[#1E2228]/90 border-b border-[#333945] shadow-lg shadow-black/10'
-                        : 'bg-[#F7F5F0]/90 border-b border-[#E6E1D5] shadow-sm'
+                        ? 'bg-[#1C2026]/85 border-b border-[#2D333F] shadow-lg shadow-black/10'
+                        : 'bg-[#FAF8F5]/85 border-b border-[#EDE8DE] shadow-sm'
                     : 'bg-transparent'
             } backdrop-blur-md`}
         >
@@ -48,8 +48,8 @@ const Navbar = ({ isDark, toggleTheme, activeSection, scrollToSection }) => {
                     </span>
                     <span className={`hidden sm:inline-block text-xs px-2.5 py-0.5 rounded-full font-medium border ${
                         isDark
-                            ? 'bg-[#282D36] border-[#3A4250] text-[#A3A9B6]'
-                            : 'bg-[#ECE8DC] border-[#DDD7C8] text-[#5A554A]'
+                            ? 'bg-[#262C36] border-[#363E4D] text-[#A3A9B6]'
+                            : 'bg-[#F2ECE1] border-[#E5DEC\D] text-[#6A6458]'
                     }`}>
                         Portfolio
                     </span>
@@ -82,7 +82,7 @@ const Navbar = ({ isDark, toggleTheme, activeSection, scrollToSection }) => {
                         ))}
                     </div>
 
-                    <div className={`h-4 w-px ${isDark ? 'bg-[#333945]' : 'bg-[#E6E1D5]'}`} />
+                    <div className={`h-4 w-px ${isDark ? 'bg-[#2D333F]' : 'bg-[#EDE8DE]'}`} />
 
                     {/* Resume CTA & Theme Toggle */}
                     <div className="flex items-center space-x-4">
@@ -92,8 +92,8 @@ const Navbar = ({ isDark, toggleTheme, activeSection, scrollToSection }) => {
                             rel="noopener noreferrer"
                             className={`inline-flex items-center text-xs font-semibold px-4 py-2 rounded-full transition-all duration-200 transform active:scale-95 ${
                                 isDark
-                                    ? 'bg-[#E8EAED] text-[#1E2228] hover:bg-white shadow-sm'
-                                    : 'bg-[#1E1D1A] text-[#F7F5F0] hover:bg-neutral-800 shadow-sm'
+                                    ? 'bg-[#E8EAED] text-[#1C2026] hover:bg-white shadow-sm'
+                                    : 'bg-[#1E1D1A] text-[#FAF8F5] hover:bg-neutral-800 shadow-sm'
                             }`}
                         >
                             Resume
@@ -105,8 +105,8 @@ const Navbar = ({ isDark, toggleTheme, activeSection, scrollToSection }) => {
                             aria-label="Toggle color theme"
                             className={`p-2 rounded-full transition-colors cursor-pointer ${
                                 isDark
-                                    ? 'text-[#9BA1AD] hover:text-white hover:bg-[#282D36]'
-                                    : 'text-[#68655E] hover:text-neutral-900 hover:bg-[#EAE5D8]'
+                                    ? 'text-[#9BA1AD] hover:text-white hover:bg-[#262C36]'
+                                    : 'text-[#68655E] hover:text-neutral-900 hover:bg-[#EFE9DC]'
                             }`}
                         >
                             {isDark ? <Sun size={18} /> : <Moon size={18} />}
@@ -120,7 +120,7 @@ const Navbar = ({ isDark, toggleTheme, activeSection, scrollToSection }) => {
                         onClick={toggleTheme}
                         aria-label="Toggle color theme"
                         className={`p-2 rounded-full ${
-                            isDark ? 'text-[#9BA1AD] hover:bg-[#282D36]' : 'text-[#68655E] hover:bg-[#EAE5D8]'
+                            isDark ? 'text-[#9BA1AD] hover:bg-[#262C36]' : 'text-[#68655E] hover:bg-[#EFE9DC]'
                         }`}
                     >
                         {isDark ? <Sun size={18} /> : <Moon size={18} />}
@@ -129,7 +129,7 @@ const Navbar = ({ isDark, toggleTheme, activeSection, scrollToSection }) => {
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                         aria-label="Toggle menu"
                         className={`p-2 rounded-lg ${
-                            isDark ? 'text-[#9BA1AD] hover:bg-[#282D36]' : 'text-[#68655E] hover:bg-[#EAE5D8]'
+                            isDark ? 'text-[#9BA1AD] hover:bg-[#262C36]' : 'text-[#68655E] hover:bg-[#EFE9DC]'
                         }`}
                     >
                         {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
@@ -141,7 +141,7 @@ const Navbar = ({ isDark, toggleTheme, activeSection, scrollToSection }) => {
             {isMenuOpen && (
                 <div
                     className={`md:hidden border-b px-6 py-6 space-y-4 ${
-                        isDark ? 'bg-[#1E2228] border-[#333945]' : 'bg-[#F7F5F0] border-[#E6E1D5]'
+                        isDark ? 'bg-[#1C2026] border-[#2D333F]' : 'bg-[#FAF8F5] border-[#EDE8DE]'
                     }`}
                 >
                     <div className="flex flex-col space-y-3">
@@ -160,14 +160,14 @@ const Navbar = ({ isDark, toggleTheme, activeSection, scrollToSection }) => {
                         ))}
                     </div>
                     <div className={`pt-3 border-t flex justify-between items-center ${
-                        isDark ? 'border-[#333945]' : 'border-[#E6E1D5]'
+                        isDark ? 'border-[#2D333F]' : 'border-[#EDE8DE]'
                     }`}>
                         <a
                             href="/Ctran_Resume_v2.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
                             className={`inline-flex items-center text-xs font-semibold px-4 py-2.5 rounded-full ${
-                                isDark ? 'bg-[#E8EAED] text-[#1E2228]' : 'bg-[#1E1D1A] text-[#F7F5F0]'
+                                isDark ? 'bg-[#E8EAED] text-[#1C2026]' : 'bg-[#1E1D1A] text-[#FAF8F5]'
                             }`}
                         >
                             View Resume

@@ -25,28 +25,28 @@ const ContactSection = ({ isDark }) => {
     };
 
     return (
-        <section id="contact" className={`py-28 md:py-36 px-6 border-t ${
-            isDark ? 'border-[#333945]' : 'border-[#E6E1D5]'
+        <section id="contact" className={`py-36 md:py-48 px-6 border-t ${
+            isDark ? 'border-[#2D333F]' : 'border-[#EDE8DE]'
         }`}>
             <div className="max-w-5xl mx-auto">
-                <div className="text-center mb-16">
-                    <h2 className={`text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-3 ${
+                <div className="text-center mb-20">
+                    <h2 className={`text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4 ${
                         isDark ? 'text-[#F0F2F5]' : 'text-[#1E1D1A]'
                     }`}>
                         Let's Connect
                     </h2>
-                    <p className={`text-base md:text-lg max-w-2xl mx-auto ${
+                    <p className={`text-lg md:text-xl max-w-2xl mx-auto leading-relaxed ${
                         isDark ? 'text-[#9BA1AD]' : 'text-[#68655E]'
                     }`}>
                         I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology
                     </p>
                 </div>
 
-                <div className={`grid md:grid-cols-2 rounded-2xl border transition-colors overflow-hidden ${
-                    isDark ? 'bg-[#282D36] border-[#3A4250]' : 'bg-white border-[#E6E1D5] shadow-sm'
+                <div className={`grid md:grid-cols-2 rounded-3xl border transition-colors overflow-hidden ${
+                    isDark ? 'bg-[#242A34] border-[#363E4D]' : 'bg-white border-[#EDE8DE] shadow-sm'
                 }`}>
                     {/* Left: Get in Touch */}
-                    <div className="p-8 md:p-12 flex flex-col justify-between">
+                    <div className="p-10 md:p-14 flex flex-col justify-between">
                         <div>
                             <h3 className={`text-2xl font-bold mb-8 flex items-center ${
                                 isDark ? 'text-[#E5A84B]' : 'text-[#B45309]'
@@ -76,7 +76,7 @@ const ContactSection = ({ isDark }) => {
                                 />
                                 <ContactLink
                                     icon={<FileText size={18} />}
-                                    text="Resume"
+                                    text="Resume (PDF)"
                                     href="/Ctran_Resume_v2.pdf"
                                     isDark={isDark}
                                 />
@@ -85,10 +85,10 @@ const ContactSection = ({ isDark }) => {
                     </div>
 
                     {/* Right: Message Form */}
-                    <div className={`p-8 md:p-12 border-t md:border-t-0 md:border-l ${
-                        isDark ? 'bg-[#20252D] border-[#3A4250]' : 'bg-[#F9F7F2] border-[#E6E1D5]'
+                    <div className={`p-10 md:p-14 border-t md:border-t-0 md:border-l ${
+                        isDark ? 'bg-[#1D222B] border-[#363E4D]' : 'bg-[#FAF8F5] border-[#EDE8DE]'
                     }`}>
-                        <form onSubmit={handleFormSubmit} className="space-y-4">
+                        <form onSubmit={handleFormSubmit} className="space-y-5">
                             <div>
                                 <input
                                     type="text"
@@ -97,10 +97,10 @@ const ContactSection = ({ isDark }) => {
                                     onChange={handleFormChange}
                                     placeholder="Your Name"
                                     required
-                                    className={`w-full px-4 py-3 rounded-xl text-sm border outline-none transition-colors ${
+                                    className={`w-full px-5 py-3.5 rounded-xl text-sm border outline-none transition-colors ${
                                         isDark
-                                            ? 'bg-[#181C22] border-[#3A4250] text-[#F0F2F5] placeholder-[#798190] focus:border-[#E5A84B]'
-                                            : 'bg-white border-[#DDD7C8] text-[#1E1D1A] placeholder-[#8E8A80] focus:border-[#B45309]'
+                                            ? 'bg-[#181C23] border-[#363E4D] text-[#F0F2F5] placeholder-[#798190] focus:border-[#E5A84B]'
+                                            : 'bg-white border-[#E0D9C8] text-[#1E1D1A] placeholder-[#8E8A80] focus:border-[#B45309]'
                                     }`}
                                 />
                             </div>
@@ -113,10 +113,10 @@ const ContactSection = ({ isDark }) => {
                                     onChange={handleFormChange}
                                     placeholder="Your Email"
                                     required
-                                    className={`w-full px-4 py-3 rounded-xl text-sm border outline-none transition-colors ${
+                                    className={`w-full px-5 py-3.5 rounded-xl text-sm border outline-none transition-colors ${
                                         isDark
-                                            ? 'bg-[#181C22] border-[#3A4250] text-[#F0F2F5] placeholder-[#798190] focus:border-[#E5A84B]'
-                                            : 'bg-white border-[#DDD7C8] text-[#1E1D1A] placeholder-[#8E8A80] focus:border-[#B45309]'
+                                            ? 'bg-[#181C23] border-[#363E4D] text-[#F0F2F5] placeholder-[#798190] focus:border-[#E5A84B]'
+                                            : 'bg-white border-[#E0D9C8] text-[#1E1D1A] placeholder-[#8E8A80] focus:border-[#B45309]'
                                     }`}
                                 />
                             </div>
@@ -129,20 +129,20 @@ const ContactSection = ({ isDark }) => {
                                     placeholder="Your Message..."
                                     required
                                     rows="4"
-                                    className={`w-full px-4 py-3 rounded-xl text-sm border outline-none transition-colors resize-none ${
+                                    className={`w-full px-5 py-3.5 rounded-xl text-sm border outline-none transition-colors resize-none ${
                                         isDark
-                                            ? 'bg-[#181C22] border-[#3A4250] text-[#F0F2F5] placeholder-[#798190] focus:border-[#E5A84B]'
-                                            : 'bg-white border-[#DDD7C8] text-[#1E1D1A] placeholder-[#8E8A80] focus:border-[#B45309]'
+                                            ? 'bg-[#181C23] border-[#363E4D] text-[#F0F2F5] placeholder-[#798190] focus:border-[#E5A84B]'
+                                            : 'bg-white border-[#E0D9C8] text-[#1E1D1A] placeholder-[#8E8A80] focus:border-[#B45309]'
                                     }`}
                                 />
                             </div>
 
                             <button
                                 type="submit"
-                                className={`w-full py-3.5 rounded-xl text-sm font-semibold transition-all duration-200 flex items-center justify-center cursor-pointer active:scale-98 shadow-sm ${
+                                className={`w-full py-4 rounded-xl text-sm font-semibold transition-all duration-200 flex items-center justify-center cursor-pointer active:scale-98 shadow-sm ${
                                     isDark
-                                        ? 'bg-[#E8EAED] text-[#1E2228] hover:bg-white'
-                                        : 'bg-[#1E1D1A] text-[#F7F5F0] hover:bg-neutral-800'
+                                        ? 'bg-[#E8EAED] text-[#1C2026] hover:bg-white'
+                                        : 'bg-[#1E1D1A] text-[#FAF8F5] hover:bg-neutral-800'
                                 }`}
                             >
                                 <Send size={16} className="mr-2" />
@@ -161,10 +161,10 @@ const ContactLink = ({ icon, text, href, isDark }) => (
         href={href}
         target={href.startsWith('mailto') ? undefined : "_blank"}
         rel={href.startsWith('mailto') ? undefined : "noopener noreferrer"}
-        className={`flex items-center space-x-3 p-3 rounded-xl border transition-colors ${
+        className={`flex items-center space-x-3.5 p-3.5 rounded-xl border transition-colors ${
             isDark
-                ? 'border-[#3A4250] hover:bg-[#20252D] text-[#CBD2DC] hover:text-white'
-                : 'border-[#E6E1D5] hover:bg-[#ECE8DC] text-[#4A463D] hover:text-[#1E1D1A]'
+                ? 'border-[#363E4D] hover:bg-[#2A313D] text-[#CBD2DC] hover:text-white'
+                : 'border-[#EDE8DE] hover:bg-[#F2ECE1] text-[#4A463D] hover:text-[#1E1D1A]'
         }`}
     >
         <span className={isDark ? 'text-[#E5A84B]' : 'text-[#B45309]'}>{icon}</span>

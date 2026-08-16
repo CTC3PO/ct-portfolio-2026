@@ -39,8 +39,8 @@ const Portfolio = () => {
   return (
     <div className={`min-h-screen transition-colors duration-300 ${
       isDark
-        ? 'bg-[#1E2228] text-[#E8EAED]'
-        : 'bg-[#F7F5F0] text-[#1E1D1A]'
+        ? 'bg-[#1C2026] text-[#E8EAED]'
+        : 'bg-[#FAF8F5] text-[#1E1D1A]'
     }`}>
       <Navbar
         isDark={isDark}
@@ -57,8 +57,8 @@ const Portfolio = () => {
       </main>
 
       {/* Clean Minimalist Footer */}
-      <footer className={`py-12 px-6 text-center border-t transition-colors ${
-        isDark ? 'border-[#333945] text-[#9199A6] bg-[#191C22]' : 'border-[#E6E1D5] text-[#7A766E] bg-[#EFECE3]'
+      <footer className={`py-16 px-6 text-center border-t transition-colors ${
+        isDark ? 'border-[#2D333F] text-[#8E97A6] bg-[#171A20]' : 'border-[#EDE8DE] text-[#8A867E] bg-[#F5F2EC]'
       }`}>
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between text-xs space-y-4 sm:space-y-0">
           <p>© {new Date().getFullYear()} Chau Tran. All rights reserved.</p>
