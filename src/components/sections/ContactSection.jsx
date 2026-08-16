@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Github, Linkedin, MessageCircle, Send, FileText } from 'lucide-react';
+import { Mail, Github, Linkedin, FileText, Send } from 'lucide-react';
 
 const ContactSection = ({ isDark }) => {
     const [formData, setFormData] = useState({
@@ -20,63 +20,83 @@ const ContactSection = ({ isDark }) => {
         const subject = `Portfolio Contact from ${formData.name}`;
         const body = `Hello Chau,\n\n${formData.message}\n\nBest regards,\n${formData.name}\n${formData.email}`;
         const mailtoLink = `mailto:ctran@alumni.upenn.edu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
         window.location.href = mailtoLink;
         setFormData({ name: '', email: '', message: '' });
     };
 
     return (
-        <section id="contact" className="py-20 px-6">
+        <section id="contact" className={`py-24 md:py-32 px-6 border-t ${
+            isDark ? 'border-[#2E2C28]' : 'border-[#DDD9CE]'
+        }`}>
             <div className="max-w-5xl mx-auto">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent">
+                    <div className="flex items-center justify-center space-x-3 mb-4">
+                        <span className={`text-xs font-semibold tracking-[0.2em] uppercase ${
+                            isDark ? 'text-[#C89B6D]' : 'text-[#7A4623]'
+                        }`}>
+                            03 / CONTACT
+                        </span>
+                    </div>
+
+                    <h2 className={`text-3xl sm:text-4xl md:text-5xl font-black tracking-tight uppercase mb-3 ${
+                        isDark ? 'text-[#F5F3EC]' : 'text-[#1C1C1A]'
+                    }`}>
                         Let's Connect
                     </h2>
-                    <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-teal-600 mx-auto mb-6 rounded-full"></div>
-                    <p className={`max-w-2xl mx-auto text-lg ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+                    <p className={`text-base md:text-lg max-w-2xl mx-auto font-normal ${
+                        isDark ? 'text-[#8E8D86]' : 'text-[#75746E]'
+                    }`}>
                         I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology
                     </p>
                 </div>
 
-                <div className={`grid md:grid-cols-2 rounded-3xl shadow-xl overflow-hidden transition-all duration-300 border ${isDark ? 'bg-slate-800/40 border-slate-700/50' : 'bg-white border-white'}`}>
-                    <div className="p-12">
-                        <h3 className="text-3xl font-bold mb-8 text-blue-600 flex items-center">
-                            <div className="p-3 rounded-xl bg-blue-100 dark:bg-blue-900/30 mr-4">
-                                <MessageCircle className="text-blue-600 dark:text-blue-400" size={28} />
-                            </div>
-                            Get in Touch
-                        </h3>
+                <div className={`grid md:grid-cols-2 border transition-colors ${
+                    isDark ? 'border-[#2E2C28] bg-[#1E1D1A]/50' : 'border-[#DDD9CE] bg-[#F2EFE7]/50'
+                }`}>
+                    {/* Left: Contact Info */}
+                    <div className="p-8 md:p-12 flex flex-col justify-between">
+                        <div>
+                            <h3 className={`text-xl font-bold tracking-tight mb-8 uppercase ${
+                                isDark ? 'text-[#C89B6D]' : 'text-[#7A4623]'
+                            }`}>
+                                Get in Touch
+                            </h3>
 
-                        <div className="space-y-8">
-                            <ContactLink
-                                icon={<Mail size={24} />}
-                                text="ctran@alumni.upenn.edu"
-                                href="mailto:ctran@alumni.upenn.edu"
-                                isDark={isDark}
-                            />
-                            <ContactLink
-                                icon={<Github size={24} />}
-                                text="github.com/CTC3PO"
-                                href="https://github.com/CTC3PO"
-                                isDark={isDark}
-                            />
-                            <ContactLink
-                                icon={<Linkedin size={24} />}
-                                text="linkedin.com/in/chautrancmt26"
-                                href="https://www.linkedin.com/in/chautrancmt26/"
-                                isDark={isDark}
-                            />
-                            <ContactLink
-                                icon={<FileText size={24} />}
-                                text="Resume"
-                                href="/Ctran_Resume_v2.pdf"
-                                isDark={isDark}
-                            />
+                            <div className="space-y-4">
+                                <ContactLink
+                                    icon={<Mail size={16} />}
+                                    text="ctran@alumni.upenn.edu"
+                                    href="mailto:ctran@alumni.upenn.edu"
+                                    isDark={isDark}
+                                />
+                                <ContactLink
+                                    icon={<Github size={16} />}
+                                    text="github.com/CTC3PO"
+                                    href="https://github.com/CTC3PO"
+                                    isDark={isDark}
+                                />
+                                <ContactLink
+                                    icon={<Linkedin size={16} />}
+                                    text="linkedin.com/in/chautrancmt26"
+                                    href="https://www.linkedin.com/in/chautrancmt26/"
+                                    isDark={isDark}
+                                />
+                                <ContactLink
+                                    icon={<FileText size={16} />}
+                                    text="Resume (PDF)"
+                                    href="/Ctran_Resume_v2.pdf"
+                                    isDark={isDark}
+                                />
+                            </div>
                         </div>
                     </div>
-                    <div className={`p-12 ${isDark ? 'bg-slate-800/40 border-l border-slate-700/50' : 'bg-slate-50/50 border-l border-slate-100'}`}>
-                        <form onSubmit={handleFormSubmit} className="space-y-6">
-                            <div className="relative group">
+
+                    {/* Right: Message Form */}
+                    <div className={`p-8 md:p-12 border-t md:border-t-0 md:border-l ${
+                        isDark ? 'border-[#2E2C28] bg-[#191816]' : 'border-[#DDD9CE] bg-[#F6F4EE]'
+                    }`}>
+                        <form onSubmit={handleFormSubmit} className="space-y-4">
+                            <div>
                                 <input
                                     type="text"
                                     name="name"
@@ -84,13 +104,15 @@ const ContactSection = ({ isDark }) => {
                                     onChange={handleFormChange}
                                     placeholder="Your Name"
                                     required
-                                    className={`w-full px-5 py-4 rounded-xl outline-none transition-all duration-300 border ${isDark
-                                        ? 'bg-slate-700/60 border-transparent text-white placeholder-slate-400 focus:bg-slate-700 focus:border-blue-500'
-                                        : 'bg-white border-slate-200 focus:border-blue-500 focus:shadow-[0_0_15px_rgba(59,130,246,0.1)]'
-                                        }`}
+                                    className={`w-full px-4 py-3 text-sm border outline-none transition-colors ${
+                                        isDark
+                                            ? 'bg-[#141413] border-[#2E2C28] text-[#F5F3EC] placeholder-[#8E8D86] focus:border-[#C89B6D]'
+                                            : 'bg-[#F2EFE7] border-[#DDD9CE] text-[#1C1C1A] placeholder-[#75746E] focus:border-[#1C1C1A]'
+                                    }`}
                                 />
                             </div>
-                            <div className="relative group">
+
+                            <div>
                                 <input
                                     type="email"
                                     name="email"
@@ -98,13 +120,15 @@ const ContactSection = ({ isDark }) => {
                                     onChange={handleFormChange}
                                     placeholder="Your Email"
                                     required
-                                    className={`w-full px-5 py-4 rounded-xl outline-none transition-all duration-300 border ${isDark
-                                        ? 'bg-slate-700/60 border-transparent text-white placeholder-slate-400 focus:bg-slate-700 focus:border-blue-500'
-                                        : 'bg-white border-slate-200 focus:border-blue-500 focus:shadow-[0_0_15px_rgba(59,130,246,0.1)]'
-                                        }`}
+                                    className={`w-full px-4 py-3 text-sm border outline-none transition-colors ${
+                                        isDark
+                                            ? 'bg-[#141413] border-[#2E2C28] text-[#F5F3EC] placeholder-[#8E8D86] focus:border-[#C89B6D]'
+                                            : 'bg-[#F2EFE7] border-[#DDD9CE] text-[#1C1C1A] placeholder-[#75746E] focus:border-[#1C1C1A]'
+                                    }`}
                                 />
                             </div>
-                            <div className="relative group">
+
+                            <div>
                                 <textarea
                                     name="message"
                                     value={formData.message}
@@ -112,17 +136,23 @@ const ContactSection = ({ isDark }) => {
                                     placeholder="Your Message..."
                                     required
                                     rows="4"
-                                    className={`w-full px-5 py-4 rounded-xl outline-none transition-all duration-300 resize-none border ${isDark
-                                        ? 'bg-slate-700/60 border-transparent text-white placeholder-slate-400 focus:bg-slate-700 focus:border-blue-500'
-                                        : 'bg-white border-slate-200 focus:border-blue-500 focus:shadow-[0_0_15px_rgba(59,130,246,0.1)]'
-                                        }`}
-                                ></textarea>
+                                    className={`w-full px-4 py-3 text-sm border outline-none transition-colors resize-none ${
+                                        isDark
+                                            ? 'bg-[#141413] border-[#2E2C28] text-[#F5F3EC] placeholder-[#8E8D86] focus:border-[#C89B6D]'
+                                            : 'bg-[#F2EFE7] border-[#DDD9CE] text-[#1C1C1A] placeholder-[#75746E] focus:border-[#1C1C1A]'
+                                    }`}
+                                />
                             </div>
+
                             <button
                                 type="submit"
-                                className="bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-700 hover:to-teal-700 px-8 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-[1.02] text-white w-full flex items-center justify-center shadow-lg shadow-blue-500/25"
+                                className={`w-full py-3.5 text-xs font-bold tracking-[0.15em] uppercase border transition-colors flex items-center justify-center cursor-pointer ${
+                                    isDark
+                                        ? 'border-[#F5F3EC] text-[#F5F3EC] hover:bg-[#F5F3EC] hover:text-[#191816]'
+                                        : 'border-[#1C1C1A] text-[#1C1C1A] hover:bg-[#1C1C1A] hover:text-[#F6F4EE]'
+                                }`}
                             >
-                                <Send size={20} className="mr-3" />
+                                <Send size={14} className="mr-2" />
                                 Send Message
                             </button>
                         </form>
@@ -134,20 +164,19 @@ const ContactSection = ({ isDark }) => {
 };
 
 const ContactLink = ({ icon, text, href, isDark }) => (
-    <div className="flex items-center group cursor-pointer p-4 rounded-xl transition-all duration-300 hover:bg-gray-100 dark:hover:bg-gray-800/60">
-        <div className="mr-5 text-blue-600 dark:text-blue-400 group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-300">
-            {icon}
-        </div>
-        <a
-            href={href}
-            target={href.startsWith('mailto') ? undefined : "_blank"}
-            rel={href.startsWith('mailto') ? undefined : "noopener noreferrer"}
-            className={`text-lg font-medium transition-colors duration-300 ${isDark ? 'text-slate-300 group-hover:text-white' : 'text-slate-600 group-hover:text-slate-900'
-                }`}
-        >
-            {text}
-        </a>
-    </div>
+    <a
+        href={href}
+        target={href.startsWith('mailto') ? undefined : "_blank"}
+        rel={href.startsWith('mailto') ? undefined : "noopener noreferrer"}
+        className={`flex items-center space-x-3 p-3.5 border transition-colors text-xs font-semibold tracking-[0.1em] uppercase ${
+            isDark
+                ? 'border-[#2E2C28] hover:border-[#4A4740] text-[#D0CDC4] hover:text-[#F5F3EC]'
+                : 'border-[#DDD9CE] hover:border-[#B5B0A2] text-[#3E3D38] hover:text-[#1C1C1A]'
+        }`}
+    >
+        <span className={isDark ? 'text-[#C89B6D]' : 'text-[#7A4623]'}>{icon}</span>
+        <span className="truncate">{text}</span>
+    </a>
 );
 
 export default ContactSection;

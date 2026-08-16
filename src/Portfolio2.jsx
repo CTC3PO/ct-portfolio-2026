@@ -12,13 +12,12 @@ const Portfolio = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'projects', 'contact'];
+      const sections = ['home', 'projects', 'about', 'contact'];
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          // Adjust threshold based on section height if needed
-          return rect.top <= 200 && rect.bottom >= 200;
+          return rect.top <= 250 && rect.bottom >= 250;
         }
         return false;
       });
@@ -38,10 +37,11 @@ const Portfolio = () => {
   };
 
   return (
-    <div className={`min-h-screen transition-colors duration-500 overflow-hidden ${isDark
-        ? 'bg-[#0f172a] text-gray-50'
-        : 'bg-gradient-to-br from-slate-50 via-blue-50 to-teal-50 text-slate-900'
-      }`}>
+    <div className={`min-h-screen transition-colors duration-300 ${
+      isDark
+        ? 'bg-[#191816] text-[#F5F3EC]'
+        : 'bg-[#F6F4EE] text-[#1C1C1A]'
+    }`}>
       <Navbar
         isDark={isDark}
         toggleTheme={toggleTheme}
@@ -49,22 +49,21 @@ const Portfolio = () => {
         scrollToSection={scrollToSection}
       />
 
-      {/* 
-        Wrap sections in a container that handles the smooth fade transitions 
-        and structural padding 
-      */}
       <main className="relative z-10 w-full">
         <HeroSection isDark={isDark} scrollToSection={scrollToSection} />
-        <AboutSection isDark={isDark} />
         <ProjectsSection isDark={isDark} />
+        <AboutSection isDark={isDark} />
         <ContactSection isDark={isDark} />
       </main>
 
-      {/* Footer */}
-      <footer className={`py-8 text-center border-t transition-colors duration-300 ${isDark ? 'border-gray-800 bg-gray-950/50' : 'border-blue-100 bg-white/50'}`}>
-        <p className={`text-sm ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
-          © {new Date().getFullYear()} Chau Tran. Built with React & Tailwind CSS.
-        </p>
+      {/* Architectural Footer */}
+      <footer className={`py-12 px-6 border-t text-xs font-semibold tracking-[0.15em] uppercase transition-colors ${
+        isDark ? 'border-[#2E2C28] text-[#8E8D86] bg-[#141413]' : 'border-[#DDD9CE] text-[#75746E] bg-[#EFECE3]'
+      }`}>
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0">
+          <p>© {new Date().getFullYear()} CHAU TRAN. ALL RIGHTS RESERVED.</p>
+          <p>BUILT WITH REACT & TAILWIND CSS • PHILADELPHIA & NYC</p>
+        </div>
       </footer>
     </div>
   );

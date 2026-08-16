@@ -1,134 +1,122 @@
 import React from 'react';
-import { Github, ExternalLink, Video } from 'lucide-react';
+import { ArrowUpRight, Github } from 'lucide-react';
 
 const ProjectCard = ({ project, isDark }) => {
-    const isVideoFile = project.video && (
-        project.video.endsWith('.mp4') || 
-        project.video.endsWith('.webm') || 
-        project.video.endsWith('.mov')
-    );
+    const isDualImage = Array.isArray(project.image);
 
     return (
-        <div
-            className={`rounded-xl overflow-hidden hover:transform hover:-translate-y-2 transition-all duration-300 shadow-lg border backdrop-blur-sm ${isDark
-                    ? 'bg-gray-800/80 border-gray-700 hover:shadow-blue-500/20'
-                    : 'bg-white/90 border-gray-200 hover:shadow-xl'
-                }`}
+        <article
+            className={`border transition-colors flex flex-col justify-between ${
+                isDark
+                    ? 'border-[#2E2C28] bg-[#1E1D1A]/50 hover:border-[#4A4740]'
+                    : 'border-[#DDD9CE] bg-[#F2EFE7]/50 hover:border-[#B5B0A2]'
+            }`}
         >
-            <div className="h-48 bg-gradient-to-br from-blue-500 to-teal-500 relative overflow-hidden group">
-                {Array.isArray(project.image) ? (
-                    <div className="w-full h-full grid grid-cols-2 gap-0.5 bg-gray-900 overflow-hidden">
+            {/* Top Bar: Number & Category */}
+            <div className={`px-6 py-3 border-b flex items-center justify-between text-xs font-semibold tracking-[0.15em] uppercase ${
+                isDark ? 'border-[#2E2C28] text-[#8E8D86]' : 'border-[#DDD9CE] text-[#75746E]'
+            }`}>
+                <span>{project.number || '00'}</span>
+                <span className={isDark ? 'text-[#C89B6D]' : 'text-[#7A4623]'}>PROJECT</span>
+            </div>
+
+            {/* Image Container */}
+            <div className={`relative w-full aspect-[16/10] overflow-hidden border-b ${
+                isDark ? 'border-[#2E2C28] bg-[#141413]' : 'border-[#DDD9CE] bg-[#EAE6DC]'
+            }`}>
+                {isDualImage ? (
+                    <div className="w-full h-full grid grid-cols-2 gap-1 p-2">
                         {project.image.map((img, idx) => (
-                            <img
-                                key={idx}
-                                src={img}
-                                alt={`${project.title} screenshot ${idx + 1}`}
-                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                onError={(e) => {
-                                    e.target.src = 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop';
-                                }}
-                            />
+                            <div key={idx} className="w-full h-full overflow-hidden border border-black/10">
+                                <img
+                                    src={img}
+                                    alt={`${project.title} screenshot ${idx + 1}`}
+                                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                                    onError={(e) => {
+                                        e.target.src = 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop';
+                                    }}
+                                />
+                            </div>
                         ))}
                     </div>
-                ) : isVideoFile ? (
-                    <video
-                        src={project.video}
-                        poster={typeof project.image === 'string' ? project.image : undefined}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        controls
-                        className="w-full h-full object-cover"
-                    />
                 ) : (
                     <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        className="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105"
                         onError={(e) => {
-                            // Fallback if image not found
                             e.target.src = 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop';
                         }}
                     />
                 )}
-                {project.featured && (
-                    <div className="absolute top-3 right-3 shadow-md pointer-events-none z-10">
-                        <span className="bg-yellow-400 text-yellow-900 text-xs px-2 py-1 rounded-full font-bold tracking-wide">
-                            Featured
-                        </span>
-                    </div>
-                )}
             </div>
-            <div className="p-6">
-                <h3 className={`text-xl font-bold mb-3 ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                    {project.title}
-                </h3>
-                <p className={`mb-4 text-sm leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                    {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech) => (
-                        <span
-                            key={tech}
-                            className={`text-xs px-2 py-1 rounded-full font-medium ${isDark
-                                    ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30'
-                                    : 'bg-blue-50 text-blue-700 border border-blue-200'
+
+            {/* Content Area */}
+            <div className="p-6 md:p-8 flex-1 flex flex-col justify-between">
+                <div>
+                    <h3 className={`text-xl md:text-2xl font-bold tracking-tight mb-3 ${
+                        isDark ? 'text-[#F5F3EC]' : 'text-[#1C1C1A]'
+                    }`}>
+                        {project.title}
+                    </h3>
+
+                    <p className={`text-sm md:text-base leading-relaxed mb-6 font-normal ${
+                        isDark ? 'text-[#D0CDC4]' : 'text-[#5A5852]'
+                    }`}>
+                        {project.description}
+                    </p>
+
+                    {/* Small-Caps Tech Tags */}
+                    <div className="flex flex-wrap gap-2 mb-6">
+                        {project.tech.map((tech) => (
+                            <span
+                                key={tech}
+                                className={`text-[11px] font-semibold tracking-[0.1em] uppercase px-2.5 py-1 border ${
+                                    isDark
+                                        ? 'border-[#2E2C28] text-[#D0CDC4] bg-[#191816]'
+                                        : 'border-[#DDD9CE] text-[#3E3D38] bg-[#F6F4EE]'
                                 }`}
-                        >
-                            {tech}
-                        </span>
-                    ))}
+                            >
+                                {tech}
+                            </span>
+                        ))}
+                    </div>
                 </div>
-                <div className="flex space-x-4 mt-auto pt-2">
-                    {project.video && (
-                        <a
-                            href={project.video}
-                            className={`flex items-center text-sm font-medium hover:text-blue-600 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <Video size={16} className="mr-2" />
-                            Video Demo
-                        </a>
-                    )}
-                    {project.github && project.github !== "(private)" && (
-                        <a
-                            href={project.github}
-                            className={`flex items-center text-sm font-medium hover:text-blue-600 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-600'
-                                }`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <Github size={16} className="mr-2" />
-                            Code
-                        </a>
-                    )}
-                    {project.github === "(private)" && (
-                        <span
-                            className={`flex items-center text-sm font-medium ${isDark ? 'text-gray-500' : 'text-gray-400'
-                                }`}
-                            title="Repository is private"
-                        >
-                            <Github size={16} className="mr-2" />
-                            Code
-                        </span>
-                    )}
+
+                {/* Links */}
+                <div className={`pt-4 border-t flex items-center space-x-6 text-xs font-semibold tracking-[0.15em] uppercase ${
+                    isDark ? 'border-[#2E2C28]' : 'border-[#DDD9CE]'
+                }`}>
                     {project.live && (
                         <a
                             href={project.live}
-                            className={`flex items-center text-sm font-medium hover:text-blue-600 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-600'
-                                }`}
                             target="_blank"
                             rel="noopener noreferrer"
+                            className={`inline-flex items-center transition-colors ${
+                                isDark ? 'text-[#F5F3EC] hover:text-[#C89B6D]' : 'text-[#1C1C1A] hover:text-[#7A4623]'
+                            }`}
                         >
-                            <ExternalLink size={16} className="mr-2" />
-                            Live Demo
+                            {project.title.includes('Virtual') ? 'Watch Demo' : 'Live Demo'}
+                            <ArrowUpRight size={14} className="ml-1" />
+                        </a>
+                    )}
+
+                    {project.github && (
+                        <a
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`inline-flex items-center transition-colors ${
+                                isDark ? 'text-[#8E8D86] hover:text-[#F5F3EC]' : 'text-[#75746E] hover:text-[#1C1C1A]'
+                            }`}
+                        >
+                            <Github size={14} className="mr-1.5" />
+                            Source Code
                         </a>
                     )}
                 </div>
             </div>
-        </div>
+        </article>
     );
 };
 

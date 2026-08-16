@@ -1,1 +1,32 @@
 @import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: rgba(122, 70, 35, 0.2);
+    color: inherit;
+  }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(160, 155, 145, 0.4);
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(160, 155, 145, 0.7);
+}

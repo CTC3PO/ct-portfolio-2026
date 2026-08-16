@@ -1,62 +1,78 @@
 import React from 'react';
-import { User, Code } from 'lucide-react';
 import { skills } from '../../data/projects';
 
 const AboutSection = ({ isDark }) => {
     return (
-        <section id="about" className="py-20 px-6">
+        <section id="about" className={`py-24 md:py-32 px-6 border-t ${
+            isDark ? 'border-[#2E2C28]' : 'border-[#DDD9CE]'
+        }`}>
             <div className="max-w-6xl mx-auto">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent">
+                <div className="mb-16">
+                    <div className="flex items-center space-x-3 mb-4">
+                        <span className={`text-xs font-semibold tracking-[0.2em] uppercase ${
+                            isDark ? 'text-[#C89B6D]' : 'text-[#7A4623]'
+                        }`}>
+                            02 / ABOUT
+                        </span>
+                        <div className={`h-px flex-1 max-w-[80px] ${isDark ? 'bg-[#2E2C28]' : 'bg-[#DDD9CE]'}`} />
+                    </div>
+
+                    <h2 className={`text-3xl sm:text-4xl md:text-5xl font-black tracking-tight uppercase ${
+                        isDark ? 'text-[#F5F3EC]' : 'text-[#1C1C1A]'
+                    }`}>
                         About Me
                     </h2>
-                    <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-teal-600 mx-auto rounded-full"></div>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-10 items-stretch">
-                    <div className={`p-10 rounded-3xl shadow-lg transition-all duration-300 border ${isDark ? 'bg-slate-800/30 border-slate-700/50 hover:bg-slate-800/50' : 'bg-white border-white hover:shadow-xl'
-                        }`}>
-                        <h3 className="text-2xl font-bold mb-6 text-blue-600 flex items-center">
-                            <div className="p-2 rounded-lg bg-blue-100 dark:bg-blue-900/30 mr-4">
-                                <User className="text-blue-600 dark:text-blue-400" size={24} />
+                <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-stretch">
+                    {/* Left Column: My Story */}
+                    <div className={`lg:col-span-7 p-8 md:p-10 border transition-colors flex flex-col justify-between ${
+                        isDark ? 'bg-[#1E1D1A]/50 border-[#2E2C28]' : 'bg-[#F2EFE7]/50 border-[#DDD9CE]'
+                    }`}>
+                        <div>
+                            <h3 className={`text-xl font-bold tracking-tight mb-6 uppercase ${
+                                isDark ? 'text-[#C89B6D]' : 'text-[#7A4623]'
+                            }`}>
+                                My Story
+                            </h3>
+                            <div className="space-y-6">
+                                <p className={`leading-relaxed text-base md:text-lg ${isDark ? 'text-[#D0CDC4]' : 'text-[#3E3D38]'}`}>
+                                    I'm a full-stack developer with a unique background in urban planning at the NYC Department of City Planning, now pursuing a Master's in Information Technology at the University of Pennsylvania.
+                                </p>
+                                <p className={`leading-relaxed text-base md:text-lg ${isDark ? 'text-[#D0CDC4]' : 'text-[#3E3D38]'}`}>
+                                    My technical focus spans modern web development, 3D interactive applications, and machine learning. Through my projects, I've demonstrated the ability to build scalable interfaces with React and Next.js, render 3D environments using Three.js and Unreal Engine, and design intelligent systems leveraging generative AI and reinforcement learning.
+                                </p>
+                                <p className={`leading-relaxed text-base md:text-lg ${isDark ? 'text-[#D0CDC4]' : 'text-[#3E3D38]'}`}>
+                                    When not coding, I explore new tech trends, practice urban sketching, and enjoy outdoor adventures with my Australian cattle dog.
+                                </p>
                             </div>
-                            My Story
-                        </h3>
-                        <div className="space-y-6">
-                            <p className={`leading-relaxed text-[1.05rem] ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-                                I'm a full-stack developer with a unique background in urban planning at the NYC
-                                Department of City Planning, now pursuing a Master's in Information Technology
-                                at the University of Pennsylvania.
-                            </p>
-                            <p className={`leading-relaxed text-[1.05rem] ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-                                My technical focus spans modern web development, 3D interactive applications, and machine learning. Through my projects, I've demonstrated the ability to build scalable interfaces with React and Next.js, render 3D environments using Three.js and Unreal Engine, and design intelligent systems leveraging generative AI and reinforcement learning.
-                            </p>
-                            <p className={`leading-relaxed text-[1.05rem] ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-                                When not coding, I explore new tech trends, practice urban sketching, and enjoy outdoor adventures with my Australian cattle dog.
-                            </p>
                         </div>
                     </div>
 
-                    <div className={`p-10 rounded-3xl shadow-lg transition-all duration-300 border ${isDark ? 'bg-slate-800/30 border-slate-700/50 hover:bg-slate-800/50' : 'bg-white border-white hover:shadow-xl'
-                        }`}>
-                        <h3 className="text-2xl font-bold mb-6 text-teal-600 flex items-center">
-                            <div className="p-2 rounded-lg bg-teal-100 dark:bg-teal-900/30 mr-4">
-                                <Code className="text-teal-600 dark:text-teal-400" size={24} />
-                            </div>
-                            Technical Skills
-                        </h3>
-                        <div className="flex flex-wrap gap-3">
-                            {skills.map((skill) => (
-                                <span
-                                    key={skill}
-                                    className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300 ${isDark
-                                        ? 'bg-slate-800/80 text-teal-300 border border-slate-700/50 hover:border-teal-400/50'
-                                        : 'bg-teal-50/50 text-teal-800 border border-teal-100 hover:border-teal-300 hover:shadow-sm'
+                    {/* Right Column: Technical Skills */}
+                    <div className={`lg:col-span-5 p-8 md:p-10 border transition-colors flex flex-col justify-between ${
+                        isDark ? 'bg-[#1E1D1A]/50 border-[#2E2C28]' : 'bg-[#F2EFE7]/50 border-[#DDD9CE]'
+                    }`}>
+                        <div>
+                            <h3 className={`text-xl font-bold tracking-tight mb-6 uppercase ${
+                                isDark ? 'text-[#C89B6D]' : 'text-[#7A4623]'
+                            }`}>
+                                Technical Skills
+                            </h3>
+                            <div className="flex flex-wrap gap-2.5">
+                                {skills.map((skill) => (
+                                    <span
+                                        key={skill}
+                                        className={`px-3.5 py-1.5 text-xs font-semibold tracking-[0.1em] uppercase border ${
+                                            isDark
+                                                ? 'border-[#2E2C28] text-[#F5F3EC] bg-[#191816]'
+                                                : 'border-[#DDD9CE] text-[#1C1C1A] bg-[#F6F4EE]'
                                         }`}
-                                >
-                                    {skill}
-                                </span>
-                            ))}
+                                    >
+                                        {skill}
+                                    </span>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>

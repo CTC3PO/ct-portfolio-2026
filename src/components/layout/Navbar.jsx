@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Sun, Moon, Menu, X } from 'lucide-react';
+import { Sun, Moon, Menu, X, ArrowUpRight } from 'lucide-react';
 
 const Navbar = ({ isDark, toggleTheme, activeSection, scrollToSection }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -7,101 +7,155 @@ const Navbar = ({ isDark, toggleTheme, activeSection, scrollToSection }) => {
 
     useEffect(() => {
         const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
+            setScrolled(window.scrollY > 30);
         };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const navLinks = ['home', 'about', 'projects', 'contact'];
+    const navItems = [
+        { id: 'home', num: '00', label: 'INDEX' },
+        { id: 'projects', num: '01', label: 'SELECTED WORK' },
+        { id: 'about', num: '02', label: 'ABOUT' },
+        { id: 'contact', num: '03', label: 'CONTACT' }
+    ];
 
-    const onNavClick = (section) => {
-        scrollToSection(section);
+    const handleNavClick = (sectionId) => {
+        scrollToSection(sectionId);
         setIsMenuOpen(false);
     };
 
     return (
-        <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled
-                ? `${isDark ? 'bg-gray-900/80 border-b border-gray-800' : 'bg-white/80 border-b border-gray-100'} backdrop-blur-xl shadow-lg`
-                : 'bg-transparent py-2'
-            }`}>
-            <div className="max-w-6xl mx-auto px-6 py-4">
-                <div className="flex justify-between items-center">
+        <header
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${
+                isDark
+                    ? 'bg-[#191816]/90 border-[#2E2C28] text-[#F5F3EC]'
+                    : 'bg-[#F6F4EE]/90 border-[#DDD9CE] text-[#1C1C1A]'
+            } backdrop-blur-md`}
+        >
+            <div className="max-w-6xl mx-auto px-6 md:px-10 h-16 md:h-20 flex items-center justify-between">
+                {/* Brand / Logo */}
+                <button
+                    onClick={() => handleNavClick('home')}
+                    className="text-left group cursor-pointer focus:outline-none"
+                >
+                    <span className="text-base sm:text-lg font-bold tracking-[0.12em] uppercase">
+                        CHAU TRAN
+                    </span>
+                </button>
 
-                    <div className="text-2xl font-black tracking-tight cursor-pointer" onClick={() => onNavClick('home')}>
-                        <span className="bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent hover:opacity-80 transition-opacity">
-                            Portfolio
-                        </span>
-                    </div>
-
-                    {/* Desktop Navigation */}
-                    <div className="hidden md:flex items-center space-x-1">
-                        <div className={`flex items-center space-x-2 mr-6 px-2 py-1.5 rounded-full ${isDark ? 'bg-gray-800/50' : 'bg-gray-100/50'} backdrop-blur-md`}>
-                            {navLinks.map((section) => (
-                                <button
-                                    key={section}
-                                    onClick={() => onNavClick(section)}
-                                    className={`capitalize px-4 py-2 rounded-full font-medium transition-all duration-300 ${activeSection === section
-                                            ? 'bg-white text-blue-600 shadow-sm dark:bg-gray-700 dark:text-blue-400'
-                                            : `hover:bg-white/50 dark:hover:bg-gray-700/50 ${isDark ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`
-                                        }`}
-                                >
-                                    {section}
-                                </button>
-                            ))}
-                        </div>
-
-                        <ThemeToggle isDark={isDark} toggleTheme={toggleTheme} />
-                    </div>
-
-                    {/* Mobile Navigation Toggle */}
-                    <div className="md:hidden flex items-center space-x-4">
-                        <ThemeToggle isDark={isDark} toggleTheme={toggleTheme} />
-                        <button
-                            onClick={() => setIsMenuOpen(!isMenuOpen)}
-                            className={`p-2 rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500/50 ${isDark ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-600 hover:bg-gray-100'
-                                }`}
-                            aria-label="Toggle menu"
-                        >
-                            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                        </button>
-                    </div>
-                </div>
-
-                {/* Mobile Menu Dropdown */}
-                <div className={`md:hidden absolute top-full left-0 w-full transition-all duration-300 origin-top ${isMenuOpen ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0 pointer-events-none'
-                    }`}>
-                    <div className={`m-4 p-4 rounded-2xl shadow-xl flex flex-col space-y-2 backdrop-blur-xl border ${isDark ? 'bg-gray-900/95 border-gray-800' : 'bg-white/95 border-gray-100'
-                        }`}>
-                        {navLinks.map((section) => (
+                {/* Desktop Nav Links */}
+                <nav className="hidden md:flex items-center space-x-8">
+                    <div className="flex items-center space-x-8">
+                        {navItems.map((item) => (
                             <button
-                                key={section}
-                                onClick={() => onNavClick(section)}
-                                className={`capitalize text-left px-6 py-4 rounded-xl font-semibold transition-colors duration-300 ${activeSection === section
-                                        ? 'bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400'
-                                        : `${isDark ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-700 hover:bg-gray-50'}`
-                                    }`}
+                                key={item.id}
+                                onClick={() => handleNavClick(item.id)}
+                                className={`text-xs font-semibold tracking-[0.15em] transition-colors cursor-pointer py-1 ${
+                                    activeSection === item.id
+                                        ? isDark
+                                            ? 'text-white border-b border-white'
+                                            : 'text-black border-b border-black'
+                                        : isDark
+                                            ? 'text-[#8E8D86] hover:text-[#F5F3EC]'
+                                            : 'text-[#75746E] hover:text-[#1C1C1A]'
+                                }`}
                             >
-                                {section}
+                                <span className="opacity-50 mr-1.5">{item.num}</span>
+                                {item.label}
                             </button>
                         ))}
                     </div>
+
+                    <div className={`h-4 w-px ${isDark ? 'bg-[#2E2C28]' : 'bg-[#DDD9CE]'}`} />
+
+                    {/* Resume & Theme Toggle */}
+                    <div className="flex items-center space-x-5">
+                        <a
+                            href="/Ctran_Resume_v2.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`inline-flex items-center text-xs font-semibold tracking-[0.12em] uppercase hover:underline ${
+                                isDark ? 'text-[#F5F3EC]' : 'text-[#1C1C1A]'
+                            }`}
+                        >
+                            Resume
+                            <ArrowUpRight size={13} className="ml-1 opacity-70" />
+                        </a>
+
+                        <button
+                            onClick={toggleTheme}
+                            aria-label="Toggle color theme"
+                            className={`p-1.5 transition-colors cursor-pointer ${
+                                isDark
+                                    ? 'text-[#8E8D86] hover:text-[#F5F3EC]'
+                                    : 'text-[#75746E] hover:text-[#1C1C1A]'
+                            }`}
+                        >
+                            {isDark ? <Sun size={17} /> : <Moon size={17} />}
+                        </button>
+                    </div>
+                </nav>
+
+                {/* Mobile Menu Button */}
+                <div className="md:hidden flex items-center space-x-3">
+                    <button
+                        onClick={toggleTheme}
+                        aria-label="Toggle color theme"
+                        className="p-1.5"
+                    >
+                        {isDark ? <Sun size={18} /> : <Moon size={18} />}
+                    </button>
+                    <button
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        aria-label="Toggle menu"
+                        className="p-1.5"
+                    >
+                        {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
+                    </button>
                 </div>
             </div>
-        </nav>
+
+            {/* Mobile Dropdown */}
+            {isMenuOpen && (
+                <div
+                    className={`md:hidden border-b px-6 py-6 space-y-4 ${
+                        isDark ? 'bg-[#191816] border-[#2E2C28]' : 'bg-[#F6F4EE] border-[#DDD9CE]'
+                    }`}
+                >
+                    <div className="flex flex-col space-y-3">
+                        {navItems.map((item) => (
+                            <button
+                                key={item.id}
+                                onClick={() => handleNavClick(item.id)}
+                                className={`text-left text-sm font-semibold tracking-[0.12em] uppercase py-1.5 ${
+                                    activeSection === item.id
+                                        ? isDark ? 'text-white font-bold' : 'text-black font-bold'
+                                        : isDark ? 'text-[#8E8D86]' : 'text-[#75746E]'
+                                }`}
+                            >
+                                <span className="opacity-50 mr-2">{item.num}</span>
+                                {item.label}
+                            </button>
+                        ))}
+                    </div>
+                    <div className={`pt-3 border-t flex justify-between items-center ${
+                        isDark ? 'border-[#2E2C28]' : 'border-[#DDD9CE]'
+                    }`}>
+                        <a
+                            href="/Ctran_Resume_v2.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center text-xs font-semibold tracking-[0.12em] uppercase"
+                        >
+                            View Resume (PDF)
+                            <ArrowUpRight size={14} className="ml-1" />
+                        </a>
+                    </div>
+                </div>
+            )}
+        </header>
     );
 };
-
-const ThemeToggle = ({ isDark, toggleTheme }) => (
-    <button
-        onClick={toggleTheme}
-        className={`p-2.5 rounded-full transition-all duration-300 transform hover:scale-110 hover:rotate-12 focus:outline-none focus:ring-2 focus:ring-blue-500/50 ${isDark ? 'bg-gray-800 text-yellow-400 hover:bg-gray-700 shadow-inner' : 'bg-blue-50 text-blue-600 hover:bg-blue-100 shadow-sm'
-            }`}
-        aria-label="Toggle theme"
-        title={`Switch to ${isDark ? 'light' : 'dark'} mode`}
-    >
-        {isDark ? <Sun size={20} /> : <Moon size={20} />}
-    </button>
-);
 
 export default Navbar;
