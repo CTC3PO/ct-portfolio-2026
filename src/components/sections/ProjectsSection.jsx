@@ -3,52 +3,64 @@ import ProjectCard from '../ui/ProjectCard';
 import { projects } from '../../data/projects';
 
 const ProjectsSection = ({ isDark }) => {
-    const [showAllProjects, setShowAllProjects] = useState(false);
-    const displayedProjects = showAllProjects ? projects : projects.slice(0, 6);
+    const [activeFilter, setActiveFilter] = useState('All');
+
+    const categories = ['All', 'Spatial & 3D', 'Full Stack', 'AI & ML'];
+
+    const filteredProjects = activeFilter === 'All'
+        ? projects
+        : projects.filter(p => p.category === activeFilter);
 
     return (
-        <section id="projects" className={`py-20 px-6 ${isDark ? '' : ''}`}>
+        <section id="projects" className="py-28 md:py-36 px-6 border-t border-neutral-200/60 dark:border-slate-800/80">
             <div className="max-w-6xl mx-auto">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent transform transition-all hover:scale-105 duration-300">
-                        Featured Projects
-                    </h2>
-                    <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-teal-600 mx-auto mb-6 rounded-full"></div>
-                    <p className={`max-w-2xl mx-auto text-lg ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
-                        Here are some of my recent projects that showcase my skills and passion for development
-                    </p>
-                </div>
+                {/* Section Header */}
+                <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                    <div>
+                        <span className={`text-xs font-bold uppercase tracking-wider mb-2 block ${
+                            isDark ? 'text-blue-400' : 'text-blue-600'
+                        }`}>
+                            Portfolio Showcase
+                        </span>
+                        <h2 className={`text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight ${
+                            isDark ? 'text-white' : 'text-neutral-900'
+                        }`}>
+                            Featured Work
+                        </h2>
+                    </div>
 
-                {/* Projects Grid */}
-                <div className="grid gap-8 mb-12">
-                    {/* First 6 projects (2 rows of 3) */}
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {displayedProjects.slice(0, 6).map((project) => (
-                            <ProjectCard key={project.title} project={project} isDark={isDark} />
+                    {/* Filter Pills */}
+                    <div className="flex flex-wrap gap-2">
+                        {categories.map((category) => (
+                            <button
+                                key={category}
+                                onClick={() => setActiveFilter(category)}
+                                className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer ${
+                                    activeFilter === category
+                                        ? isDark
+                                            ? 'bg-white text-slate-900 shadow-sm'
+                                            : 'bg-neutral-900 text-white shadow-sm'
+                                        : isDark
+                                            ? 'bg-slate-800/60 text-slate-300 hover:bg-slate-800 hover:text-white border border-slate-700/60'
+                                            : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200 hover:text-neutral-900 border border-neutral-200/80'
+                                }`}
+                            >
+                                {category}
+                            </button>
                         ))}
                     </div>
-
-                    {/* Additional projects */}
-                    {showAllProjects && displayedProjects.length > 6 && (
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 fade-in-up">
-                            {displayedProjects.slice(6).map((project) => (
-                                <ProjectCard key={project.title} project={project} isDark={isDark} />
-                            ))}
-                        </div>
-                    )}
                 </div>
 
-                {/* Show More/Less Button */}
-                {projects.length > 6 && (
-                    <div className="text-center mt-12">
-                        <button
-                            onClick={() => setShowAllProjects(!showAllProjects)}
-                            className="bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-700 hover:to-teal-700 px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 text-white shadow-lg shadow-blue-500/30"
-                        >
-                            {showAllProjects ? 'Show Less' : `Show All Projects (${projects.length})`}
-                        </button>
-                    </div>
-                )}
+                {/* 2-Column Projects Grid */}
+                <div className="grid md:grid-cols-2 gap-8 md:gap-10">
+                    {filteredProjects.map((project) => (
+                        <ProjectCard
+                            key={project.id}
+                            project={project}
+                            isDark={isDark}
+                        />
+                    ))}
+                </div>
             </div>
         </section>
     );
