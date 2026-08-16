@@ -50,11 +50,11 @@ const AboutSection = ({ isDark }) => {
                             }`}>
                                 Technical Skills
                             </h3>
-                            <div className="flex flex-wrap gap-2.5">
+                            <div className="grid grid-cols-3 gap-2">
                                 {skills.map((skill) => (
                                     <span
                                         key={skill}
-                                        className={`px-3.5 py-1.5 text-xs font-semibold tracking-[0.1em] uppercase border ${
+                                        className={`px-3 py-2 text-[11px] font-semibold tracking-[0.08em] uppercase border text-center leading-tight ${
                                             isDark
                                                 ? 'border-[#2E2C28] text-[#F5F3EC] bg-[#191816]'
                                                 : 'border-[#DDD9CE] text-[#1C1C1A] bg-[#F6F4EE]'
