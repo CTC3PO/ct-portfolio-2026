@@ -30,7 +30,7 @@ const HeroSection = ({ isDark, scrollToSection }) => {
 
                 {/* Subtitle */}
                 <h2 className={`text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight mb-10 ${
-                    isDark ? 'text-[#E5A84B]' : 'text-[#B45309]'
+                    isDark ? 'text-[#C89B6D]' : 'text-[#7A4623]'
                 }`}>
                     Full Stack Developer
                 </h2>
@@ -49,8 +49,8 @@ const HeroSection = ({ isDark, scrollToSection }) => {
                             onClick={() => scrollToSection('projects')}
                             className={`inline-flex items-center justify-center px-7 py-3.5 rounded-full text-sm font-semibold transition-all duration-200 cursor-pointer shadow-sm active:scale-95 ${
                                 isDark
-                                    ? 'bg-[#E8EAED] text-[#1C2026] hover:bg-white'
-                                    : 'bg-[#1E1D1A] text-[#FAF8F5] hover:bg-neutral-800'
+                                    ? 'bg-[#E8EAED] text-[#1C2026] hover:bg-white hover:shadow-md'
+                                    : 'bg-[#2C241E] text-[#FAF8F5] hover:bg-[#3D332B] hover:shadow-md'
                             }`}
                         >
                             View My Work
@@ -61,8 +61,8 @@ const HeroSection = ({ isDark, scrollToSection }) => {
                             onClick={() => scrollToSection('contact')}
                             className={`inline-flex items-center justify-center px-7 py-3.5 rounded-full text-sm font-medium border transition-all duration-200 cursor-pointer active:scale-95 ${
                                 isDark
-                                    ? 'border-[#363E4D] text-[#CBD2DC] hover:bg-[#262C36] hover:border-[#4A5364]'
-                                    : 'border-[#E0D9C8] text-[#3E3C36] hover:bg-[#F2ECE1] hover:border-[#CCC5B4]'
+                                    ? 'border-[#363E4D] text-[#CBD2DC] hover:bg-[#262C36] hover:border-[#4A5364] hover:text-[#C89B6D]'
+                                    : 'border-[#E0D9C8] text-[#3E3C36] hover:bg-[#F2ECE1] hover:border-[#CCC5B4] hover:text-[#7A4623]'
                             }`}
                         >
                             Get in Touch
@@ -112,8 +112,8 @@ const SocialIcon = ({ href, icon, label, isDark }) => (
         aria-label={label}
         className={`p-2.5 rounded-full transition-colors ${
             isDark
-                ? 'text-[#9BA1AD] hover:text-white hover:bg-[#262C36]'
-                : 'text-[#68655E] hover:text-[#1E1D1A] hover:bg-[#F2ECE1]'
+                ? 'text-[#9BA1AD] hover:text-[#C89B6D] hover:bg-[#262C36]'
+                : 'text-[#68655E] hover:text-[#7A4623] hover:bg-[#F2ECE1]'
         }`}
     >
         {icon}

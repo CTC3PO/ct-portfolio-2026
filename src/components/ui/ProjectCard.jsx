@@ -47,7 +47,7 @@ const ProjectCard = ({ project, isDark }) => {
             <div className="p-8 md:p-10 flex-1 flex flex-col justify-between">
                 <div>
                     <h3 className={`text-2xl md:text-3xl font-bold tracking-tight mb-3 transition-colors ${
-                        isDark ? 'text-[#F0F2F5] group-hover:text-[#E5A84B]' : 'text-[#1E1D1A] group-hover:text-[#B45309]'
+                        isDark ? 'text-[#C89B6D] group-hover:text-[#DEB288]' : 'text-[#7A4623] group-hover:text-[#5A3115]'
                     }`}>
                         {project.title}
                     </h3>
@@ -66,7 +66,7 @@ const ProjectCard = ({ project, isDark }) => {
                                 className={`text-xs font-medium px-3 py-1.5 rounded-lg transition-colors ${
                                     isDark
                                         ? 'bg-[#1C2026] text-[#CBD2DC] border border-[#363E4D]'
-                                        : 'bg-[#F7F4EC] text-[#4A463D] border border-[#E8E2D4]'
+                                        : 'bg-[#F7F4EC] text-[#523A2A] border border-[#E5DEC8]'
                                 }`}
                             >
                                 {tech}
@@ -86,8 +86,8 @@ const ProjectCard = ({ project, isDark }) => {
                             rel="noopener noreferrer"
                             className={`inline-flex items-center text-sm font-semibold transition-colors ${
                                 isDark
-                                    ? 'text-[#F0F2F5] hover:text-[#E5A84B]'
-                                    : 'text-[#1E1D1A] hover:text-[#B45309]'
+                                    ? 'text-[#F0F2F5] hover:text-[#C89B6D]'
+                                    : 'text-[#1E1D1A] hover:text-[#7A4623]'
                             }`}
                         >
                             {project.title.includes('Virtual') ? 'Watch Demo' : 'Live Demo'}
@@ -103,7 +103,7 @@ const ProjectCard = ({ project, isDark }) => {
                             className={`inline-flex items-center text-sm font-medium transition-colors ${
                                 isDark
                                     ? 'text-[#9BA1AD] hover:text-white'
-                                    : 'text-[#68655E] hover:text-[#1E1D1A]'
+                                    : 'text-[#68655E] hover:text-[#7A4623]'
                             }`}
                         >
                             <Github size={15} className="mr-1.5" />

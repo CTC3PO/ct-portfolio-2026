@@ -42,14 +42,14 @@ const Navbar = ({ isDark, toggleTheme, activeSection, scrollToSection }) => {
                     className="text-left group cursor-pointer focus:outline-none flex items-center space-x-3"
                 >
                     <span className={`text-lg font-bold tracking-tight transition-colors ${
-                        isDark ? 'text-[#F0F2F5] group-hover:text-amber-400' : 'text-neutral-900 group-hover:text-amber-700'
+                        isDark ? 'text-[#F0F2F5] group-hover:text-[#C89B6D]' : 'text-[#1E1D1A] group-hover:text-[#7A4623]'
                     }`}>
                         Chau Tran
                     </span>
                     <span className={`hidden sm:inline-block text-xs px-2.5 py-0.5 rounded-full font-medium border ${
                         isDark
                             ? 'bg-[#262C36] border-[#363E4D] text-[#A3A9B6]'
-                            : 'bg-[#F2ECE1] border-[#E5DEC\D] text-[#6A6458]'
+                            : 'bg-[#F2ECE1] border-[#E2DC CE] text-[#6A6458]'
                     }`}>
                         Portfolio
                     </span>
@@ -66,16 +66,16 @@ const Navbar = ({ isDark, toggleTheme, activeSection, scrollToSection }) => {
                                     activeSection === item.id
                                         ? isDark
                                             ? 'text-white font-semibold'
-                                            : 'text-neutral-900 font-semibold'
+                                            : 'text-[#7A4623] font-semibold'
                                         : isDark
                                             ? 'text-[#9BA1AD] hover:text-[#E8EAED]'
-                                            : 'text-[#68655E] hover:text-neutral-900'
+                                            : 'text-[#68655E] hover:text-[#7A4623]'
                                 }`}
                             >
                                 {item.label}
                                 {activeSection === item.id && (
                                     <span className={`absolute bottom-0 left-0 right-0 h-0.5 rounded-full ${
-                                        isDark ? 'bg-amber-400' : 'bg-neutral-900'
+                                        isDark ? 'bg-[#C89B6D]' : 'bg-[#7A4623]'
                                     }`} />
                                 )}
                             </button>

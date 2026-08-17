@@ -19,7 +19,7 @@ const AboutSection = ({ isDark }) => {
                     {/* Left Column: My Story (Open, unboxed narrative) */}
                     <div className="lg:col-span-7 space-y-8">
                         <h3 className={`text-2xl font-bold tracking-tight mb-6 ${
-                            isDark ? 'text-[#E5A84B]' : 'text-[#B45309]'
+                            isDark ? 'text-[#C89B6D]' : 'text-[#7A4623]'
                         }`}>
                             My Story
                         </h3>
@@ -55,8 +55,8 @@ const AboutSection = ({ isDark }) => {
                                     key={skill}
                                     className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                                         isDark
-                                            ? 'bg-[#242A34] text-[#CBD2DC] border border-[#363E4D] hover:border-[#505A6D]'
-                                            : 'bg-white text-[#3E3C36] border border-[#EDE8DE] hover:border-[#DDD6C8] shadow-xs'
+                                            ? 'bg-[#242A34] text-[#CBD2DC] border border-[#363E4D] hover:border-[#C89B6D]/50 hover:text-[#C89B6D]'
+                                            : 'bg-white text-[#3E3C36] border border-[#EDE8DE] hover:border-[#7A4623]/40 hover:text-[#7A4623] shadow-xs'
                                     }`}
                                 >
                                     {skill}
