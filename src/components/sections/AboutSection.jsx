@@ -45,7 +45,7 @@ const AboutSection = ({ isDark }) => {
                     {/* Right Column: Technical Skills (Airy, unboxed tags) */}
                     <div className="lg:col-span-5 space-y-6">
                         <h3 className={`text-2xl font-bold tracking-tight mb-6 ${
-                            isDark ? 'text-[#F0F2F5]' : 'text-[#1E1D1A]'
+                            isDark ? 'text-[#C89B6D]' : 'text-[#7A4623]'
                         }`}>
                             Technical Skills
                         </h3>
