@@ -6,7 +6,7 @@ const ProjectCard = ({ project, isDark }) => {
 
     return (
         <article
-            className={`border transition-colors flex flex-col justify-between ${
+            className={`group border transition-colors flex flex-col justify-between ${
                 isDark
                     ? 'border-[#2E2C28] bg-[#1E1D1A]/50 hover:border-[#4A4740]'
                     : 'border-[#DDD9CE] bg-[#F2EFE7]/50 hover:border-[#B5B0A2]'
@@ -46,8 +46,8 @@ const ProjectCard = ({ project, isDark }) => {
             {/* Content Area */}
             <div className="p-6 md:p-8 flex-1 flex flex-col justify-between">
                 <div>
-                    <h3 className={`text-xl md:text-2xl font-bold tracking-tight mb-3 ${
-                        isDark ? 'text-[#F5F3EC]' : 'text-[#1C1C1A]'
+                    <h3 className={`text-xl md:text-2xl font-bold tracking-tight mb-3 transition-colors ${
+                        isDark ? 'text-[#C89B6D] group-hover:text-[#DEB288]' : 'text-[#7A4623] group-hover:text-[#5A3115]'
                     }`}>
                         {project.title}
                     </h3>
