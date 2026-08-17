@@ -55,6 +55,6 @@ export const projects = [
 
 export const skills = [
     "Python", "JavaScript", "TypeScript", "C++", "React", "Next.js", "Three.js", "Node.js",
-    "Generative AI", "Reinforcement Learning", "scikit-learn", "pandas",
-    "Tailwind CSS", "Supabase", "MongoDB", "AWS", "Docker", "Git"
+    "Gen AI", "Machine Learning", "scikit-learn", "PyTorch",
+    "Supabase", "Unreal Engine", "AWS", "Docker", "Git"
 ];
