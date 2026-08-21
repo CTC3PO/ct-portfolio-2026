@@ -13,7 +13,7 @@ export const projects = [
         description: "An interactive nutrition intelligence platform featuring AI package label inspection, official Nutri-Score calculation, deceptive marketing claim verification, and recipe reformulation across 3.2M+ global food products.",
         tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Gemini AI", "Supabase"],
         github: "https://github.com/CTC3PO/nutri-explorer",
-        live: "https://nutri-explorer.vercel.app",
+        live: "https://nutri-explr.vercel.app",
         image: "/images/nutri-score-2.png",
         featured: true
     },
