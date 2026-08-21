@@ -9,6 +9,23 @@ export const projects = [
         featured: true
     },
     {
+        title: "Nutri-Global Explorer",
+        description: "An interactive nutrition intelligence platform featuring AI package label inspection, official Nutri-Score calculation, deceptive marketing claim verification, and recipe reformulation across 3.2M+ global food products.",
+        tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Gemini AI", "Supabase"],
+        github: "https://github.com/CTC3PO/nutri-explorer",
+        live: "https://nutri-explorer.vercel.app",
+        image: "/images/nutri-score-2.png",
+        featured: true
+    },
+    {
+        title: "Pacman Q-Learning Agent",
+        description: "A reinforcement learning agent that learns to play Pacman through Q-learning and feature extraction. The agent can navigate grids, avoid ghosts and collect dots efficiently.",
+        tech: ["Python", "AI", "Reinforcement Learning"],
+        github: "https://github.com/CTC3PO",
+        image: "/images/projects/ai-pacman-2.gif",
+        featured: true
+    },
+    {
         title: "Volunteer Management System",
         description: "A tailored Volunteer Management System for retreat centers. Features volunteer tracking, dynamic team assignments, CSV sync, document uploads, and offline PWA support.",
         tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Firebase", "Zustand"],
@@ -33,22 +50,6 @@ export const projects = [
         github: "",
         live: "https://drive.google.com/file/d/1MZcDWdkuWxCIQwSUONSxhmDWqFsLyLsF/view?usp=sharing",
         image: "/images/p4-photo-1.png",
-        featured: true
-    },
-    {
-        title: "Pacman Q-Learning Agent",
-        description: "A reinforcement learning agent that learns to play Pacman through Q-learning and feature extraction. The agent can navigate grids, avoid ghosts and collect dots efficiently.",
-        tech: ["Python", "AI", "Reinforcement Learning"],
-        github: "https://github.com/CTC3PO",
-        image: "/images/projects/ai-pacman-2.gif",
-        featured: true
-    },
-    {
-        title: "Food Nutri-score Prediction",
-        description: "A machine learning project that combines Open Food Facts data (1M rows) and World bank data to predict and recommend nutri-score system adoption globally.",
-        tech: ["pandas", "scikit-learn", "Jupyter notebook"],
-        github: "https://github.com/CTC3PO/ml-nutri-score-prediction",
-        image: "/images/projects/food-project.png",
         featured: true
     }
 ];
